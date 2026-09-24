@@ -28,7 +28,10 @@ function stubObserver() {
     );
 }
 
-afterEach(() => vi.unstubAllGlobals());
+afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
+});
 
 describe("SequenceStrip", () => {
     it("renders the steps as an ordered list, in data order", () => {
@@ -59,6 +62,15 @@ describe("SequenceStrip", () => {
         expect(figure).toHaveAttribute("data-state", "waiting");
         act(() => trigger(true));
         expect(figure).toHaveAttribute("data-state", "drawn");
+    });
+
+    it("never hides a strip that is already on screen when the page loads", () => {
+        // Hiding it on hydration would make visible content blink out and redraw.
+        stubMotion(false);
+        stubObserver();
+        vi.spyOn(HTMLElement.prototype, "getBoundingClientRect").mockReturnValue({ top: 100, bottom: 400 } as DOMRect);
+        render(<SequenceStrip title="t" steps={steps} tone="data" />);
+        expect(screen.getByRole("figure")).not.toHaveAttribute("data-state", "waiting");
     });
 
     it("never hides steps for a reader who prefers reduced motion", () => {

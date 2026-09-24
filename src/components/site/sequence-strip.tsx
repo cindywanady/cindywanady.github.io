@@ -17,7 +17,8 @@ type Props = {
  *
  * Server-rendered complete, so every step is readable without JavaScript. In
  * a browser that can observe scrolling, and for a reader who has not asked for
- * reduced motion, the steps wait off-screen and draw in order on arrival.
+ * reduced motion, a strip that starts below the fold waits there and draws in
+ * order on arrival. One already on screen at load is left as it is.
  */
 export function SequenceStrip({ title, steps, tone }: Props) {
     const ref = useRef<HTMLElement>(null);
@@ -29,7 +30,16 @@ export function SequenceStrip({ title, steps, tone }: Props) {
         const reduced = typeof matchMedia === "function" && matchMedia("(prefers-reduced-motion: reduce)").matches;
         if (!node || reduced || typeof IntersectionObserver === "undefined") return;
 
+        // Already on screen when the page loads: leave it as rendered. Hiding it
+        // now would make visible content blink out and redraw.
+        const { top, bottom } = node.getBoundingClientRect();
+        if (top < window.innerHeight && bottom > 0) return;
+
         setState("waiting");
+        // Draw once the strip's top has risen a fifth of the way up the screen,
+        // so the reader sees it happen. A margin works at any strip height; a
+        // visibility ratio would never be reached by a tall strip on a short
+        // screen, which would then stay hidden.
         const observer = new IntersectionObserver(
             (entries) => {
                 if (entries.some((e) => e.isIntersecting)) {
@@ -37,7 +47,7 @@ export function SequenceStrip({ title, steps, tone }: Props) {
                     observer.disconnect();
                 }
             },
-            { threshold: 0.4 },
+            { rootMargin: "0px 0px -20% 0px" },
         );
         observer.observe(node);
         return () => observer.disconnect();
