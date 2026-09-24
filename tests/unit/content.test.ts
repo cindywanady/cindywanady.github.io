@@ -80,3 +80,28 @@ describe("content", () => {
         expect(site.navigation.map((n) => n.label)).toEqual(["Data", "Yoga", "About", "Contact"]);
     });
 });
+
+/** Structured facts the pages render as data, not sentences, checked against their sources. */
+function structuredFactProblems(s: typeof site): string[] {
+    const yogaSource = normalize(readSource("yoga"));
+    const cv = normalize(readSource("cv"));
+    const problems: string[] = [];
+    for (const t of s.yoga.trainings) {
+        const line = `YTT ${t.hours}-hour, ${t.status === "completed" ? "completed" : "in progress"}`;
+        if (!yogaSource.includes(line)) problems.push(`training: ${line}`);
+    }
+    for (const style of s.yoga.styles) if (!yogaSource.includes(`${style} yoga`)) problems.push(`style: ${style}`);
+    for (const org of [s.identity.worksFor, ...s.identity.alumniOf]) if (!cv.includes(org)) problems.push(`organization: ${org}`);
+    return problems;
+}
+
+describe("structured facts", () => {
+    it("match their sources: trainings, styles, employer and schools", () => {
+        expect(structuredFactProblems(site)).toEqual([]);
+    });
+
+    it("catch a training marked completed that the source says is in progress", () => {
+        const tampered = { ...site, yoga: { ...site.yoga, trainings: site.yoga.trainings.map((t) => ({ ...t, status: "completed" as const })) } };
+        expect(structuredFactProblems(tampered)).toEqual(["training: YTT 200-hour, completed"]);
+    });
+});
