@@ -1,12 +1,12 @@
 # Verification
 
-`npm run check` runs everything below except the claim check. CI runs the same, then the claim check if the secret exists, then deploys.
+`npm run check` runs everything below except the claim check. CI runs the same, then the claim check if the secret exists, then deploys from `main`. CI also warns, without failing, when the yoga years figure in `sources/yoga.md` is more than a year old.
 
 ## Unit tests, `npm test`
 
 | File | Fails when |
 |---|---|
-| `content.test.ts` | A field is missing or empty; a quote is not in its source; a number shown is not in its quote; a title, date, degree or skill line is not verbatim in the CV; an email appears; the years-practicing date is over a year old |
+| `content.test.ts` | A field is missing or empty; a quote is not in its source; a number shown is not in its quote; a title, date, degree, skill line, training, style or organization does not match its source; an email appears |
 | `claims.test.ts` | The evidence engine misreads a number or a quote |
 | `copy-rules.test.ts` | Any content string breaks a writing rule in `docs/content.md` |
 | `banned-patterns.test.ts` | `src/` contains an eyebrow, gradient, glass card, accent rail or emoji |

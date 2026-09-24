@@ -31,6 +31,13 @@ jobs:
                   node-version: 24
                   cache: npm
             - run: npm ci
+            # "3 years" on the yoga pages is true as of a date in sources/yoga.md.
+            # Warn a year on, without failing an unrelated deploy.
+            - name: Check the yoga years figure is current
+              run: |
+                  as_of=$(grep -oE 'as of [0-9]{4}-[0-9]{2}-[0-9]{2}' sources/yoga.md | head -1 | cut -d' ' -f3)
+                  age=$(( ( $(date +%s) - $(date -d "$as_of" +%s) ) / 86400 ))
+                  if [ "$age" -gt 365 ]; then echo "::warning title=Yoga years may be stale::sources/yoga.md says 3 years as of $as_of, $age days ago. Update the figure and the date."; fi
             - run: npm run typecheck
             - run: npm run format:check
             - run: npm run build

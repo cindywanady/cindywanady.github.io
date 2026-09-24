@@ -41,12 +41,6 @@ describe("content", () => {
         expect(yogaSchema.safeParse({ ...site.yoga, reflection: { ...site.yoga.reflection, text: "" } }).success).toBe(false);
     });
 
-    it("keeps the years-practicing figure fresh", () => {
-        const ageDays = (Date.now() - new Date(site.yoga.yearsRecordedOn).getTime()) / 86_400_000;
-        expect(ageDays).toBeGreaterThanOrEqual(0);
-        expect(ageDays).toBeLessThan(366);
-    });
-
     it("publishes no email address", () => {
         expect(JSON.stringify(site)).not.toMatch(/[a-z0-9._-]+@[a-z0-9-]+\.[a-z]{2,}/i);
         expect(JSON.stringify(site)).not.toContain("mailto:");

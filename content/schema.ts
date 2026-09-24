@@ -94,8 +94,6 @@ export const trainingSchema = z.object({
 
 export const yogaSchema = z.object({
     column: columnSchema,
-    yearsPracticing: z.number().int().positive(),
-    yearsRecordedOn: z.iso.date(),
     styles: z.array(text).min(1),
     trainings: z.array(trainingSchema).min(1),
     reflection: claimSchema,

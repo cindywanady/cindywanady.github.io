@@ -45,8 +45,6 @@ export const yoga = {
         cta: "See yoga practice",
     },
 
-    yearsPracticing: 3,
-    yearsRecordedOn: "2026-09-24",
     styles: ["Hatha", "Vinyasa"],
 
     trainings: [
