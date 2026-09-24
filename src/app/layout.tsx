@@ -23,6 +23,12 @@ const body = Source_Serif_4({
 export const metadata: Metadata = {
     metadataBase: new URL("https://cindywanady.github.io"),
     title: { default: "Cindy Wanady", template: "%s, Cindy Wanady" },
+    openGraph: {
+        type: "website",
+        siteName: "Cindy Wanady",
+        images: [{ url: "/og.png", width: 1200, height: 630, alt: "Cindy Wanady: data and yoga" }],
+    },
+    twitter: { card: "summary_large_image" },
 };
 
 export const viewport: Viewport = {

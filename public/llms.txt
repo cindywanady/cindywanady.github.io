@@ -1,0 +1,17 @@
+# Cindy Wanady
+
+> Cindy Wanady works in data and practices yoga. She has six years across CRM automation, data migration and operational reporting, four of them at Mekari. She completed a Master of Data Science at Monash University with Distinction. She has practiced Hatha and Vinyasa yoga for three years, completed a 100-hour yoga teacher training at Vidyarasa, and has a 200-hour training in progress.
+
+## Data
+
+- [Data work](https://cindywanady.github.io/data/): current work at Mekari, earlier roles at PwC Indonesia and JET Express, course projects, and skills.
+- [Master's thesis](https://cindywanady.github.io/data/thesis/): a retrieval-augmented chatbot grounded in Indonesia's Ministry of Health depression guideline, rated blind by licensed psychologists.
+
+## Yoga
+
+- [Yoga practice](https://cindywanady.github.io/yoga/): trainings, styles, and the Surya Namaskar A sequence.
+
+## About and contact
+
+- [About](https://cindywanady.github.io/about/): education at Monash, Prasetiya Mulya and Tsinghua, and languages.
+- [Contact](https://cindywanady.github.io/contact/): LinkedIn, Instagram and GitHub. No email address is published.
