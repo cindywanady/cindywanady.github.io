@@ -6,9 +6,7 @@ Edit this file first when a fact changes, then the matching field in
 
 ## Practice
 
-Practicing yoga for 3 years, as of 2026-09-24.
-
-Styles: Hatha yoga and Vinyasa yoga.
+Practicing Hatha yoga and Vinyasa yoga for 3 years, as of 2026-09-24.
 
 ## Training
 
