@@ -1,4 +1,5 @@
 import { existsSync, readFileSync } from "node:fs";
+import { site } from "@content";
 import { describe, expect, it } from "vitest";
 
 // Checks over the built site in out/. These catch what component tests cannot,
@@ -31,8 +32,12 @@ describe.skipIf(!built)("built site", () => {
         expect(readFileSync("out/robots.txt", "utf8")).toContain("Sitemap: https://cindywanady.github.io/sitemap.xml");
     });
 
-    it("publishes llms.txt naming both practices and every route", () => {
+    it("publishes llms.txt built from the evidenced content", () => {
         const txt = readFileSync("out/llms.txt", "utf8");
+        // Generated from content/, so it says only what the claims say and
+        // follows every source change. A hand-written file drifted.
+        for (const claim of [...site.identity.intro, site.data.column.trueLine, ...site.yoga.column.proof]) expect(txt).toContain(claim.text);
+        expect(txt).not.toContain("four of them at Mekari");
         for (const route of ROUTES.slice(1)) expect(txt).toContain(`https://cindywanady.github.io${route}`);
         expect(txt).toMatch(/yoga/i);
         expect(txt).toMatch(/data/i);
