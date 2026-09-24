@@ -81,10 +81,10 @@ export const pages = {
         title: "Page not found",
         description: "This page does not exist.",
         text: {
-            lede: "This page does not exist. Try one of these instead.",
-            data: "Data work",
-            yoga: "Yoga practice",
+            heading: "This page does not exist.",
+            lede: "The link may be out of date, or the address mistyped. These pages do exist.",
+            ways: "Pages that do exist",
+            home: "Back to the home page",
         },
-        ledes: {},
     },
 };

@@ -111,9 +111,12 @@ describe("/contact/", () => {
 });
 
 describe("404", () => {
-    it("points to both halves", () => {
+    it("says what happened and offers every section as a way on", () => {
         render(<NotFound />);
-        expect(screen.getByRole("link", { name: "Data work" })).toHaveAttribute("href", "/data/");
-        expect(screen.getByRole("link", { name: "Yoga practice" })).toHaveAttribute("href", "/yoga/");
+        expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("This page does not exist.");
+        const ways = within(screen.getByRole("navigation", { name: "Pages that do exist" })).getAllByRole("link");
+        expect(ways.map((a) => a.getAttribute("href"))).toEqual(["/data/", "/yoga/", "/about/", "/contact/"]);
+        for (const link of ways) expect(link.querySelector("p")?.textContent?.length).toBeGreaterThan(10);
+        expect(screen.getByRole("link", { name: "Back to the home page" })).toHaveAttribute("href", "/");
     });
 });

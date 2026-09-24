@@ -84,5 +84,6 @@ test("a reader who allows motion sees the strips draw in", async ({ page }) => {
 test("an unknown path gets the not-found page with a 404", async ({ page }) => {
     const response = await page.goto("/nowhere/");
     expect(response?.status()).toBe(404);
-    await expect(page.locator("h1")).toHaveText("Page not found");
+    await expect(page.locator("h1")).toHaveText("This page does not exist.");
+    await expect(page.getByRole("navigation", { name: "Pages that do exist" }).getByRole("link")).toHaveCount(4);
 });
