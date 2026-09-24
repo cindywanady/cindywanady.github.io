@@ -1,0 +1,34 @@
+import { site } from "@content";
+import { GitHub, Instagram, LinkedIn } from "@/components/foundations/social-icons";
+
+const ICONS: Record<string, typeof GitHub> = { LinkedIn, Instagram, GitHub };
+
+/** The three profile links and the year. No email address is published. */
+export function SiteFooter() {
+    return (
+        <footer className="mx-auto mt-24 flex w-full max-w-5xl flex-wrap items-center justify-between gap-4 border-t border-secondary px-5 py-8 md:px-8">
+            <p className="font-display text-sm text-tertiary">
+                {site.identity.name}, {new Date().getFullYear()}
+            </p>
+            <nav aria-label="Profiles">
+                <ul className="flex items-center gap-5">
+                    {site.identity.profiles.map((profile) => {
+                        const Icon = ICONS[profile.label];
+                        return (
+                            <li key={profile.url}>
+                                <a
+                                    href={profile.url}
+                                    rel="me noreferrer"
+                                    className="flex items-center gap-2 font-display text-sm font-semibold text-secondary hover:text-brand-700"
+                                >
+                                    {Icon && <Icon className="size-4" aria-hidden="true" />}
+                                    {profile.label}
+                                </a>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </nav>
+        </footer>
+    );
+}

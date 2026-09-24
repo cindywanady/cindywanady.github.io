@@ -1,6 +1,7 @@
 /** Who Cindy is, her profile links, and the fields the Person JSON-LD reads. */
 export const identity = {
     name: "Cindy Wanady",
+    url: "https://cindywanady.github.io/",
     jobTitle: "Senior CRM Data, Analytics and Automation",
     worksFor: "Mekari",
     alumniOf: ["Monash University", "Prasetiya Mulya University"],

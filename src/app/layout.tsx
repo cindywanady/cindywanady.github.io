@@ -1,5 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Familjen_Grotesk, Source_Serif_4 } from "next/font/google";
+import { PersonJsonLd } from "@/components/site/person-json-ld";
+import { SiteFooter } from "@/components/site/site-footer";
+import { SiteHeader } from "@/components/site/site-header";
+import { SkipLink } from "@/components/site/skip-link";
 import { RouteProvider } from "@/providers/router-provider";
 import "@/styles/globals.css";
 import { cx } from "@/utils/cx";
@@ -28,8 +32,16 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
-            <body className={cx(display.variable, body.variable, "bg-primary font-body text-primary antialiased")}>
-                <RouteProvider>{children}</RouteProvider>
+            <body className={cx(display.variable, body.variable, "flex min-h-dvh flex-col bg-primary font-body text-primary antialiased")}>
+                <RouteProvider>
+                    <SkipLink />
+                    <SiteHeader />
+                    <main id="main" className="mx-auto w-full max-w-5xl px-5 md:px-8">
+                        {children}
+                    </main>
+                    <SiteFooter />
+                </RouteProvider>
+                <PersonJsonLd />
             </body>
         </html>
     );

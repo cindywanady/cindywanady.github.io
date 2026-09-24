@@ -36,6 +36,7 @@ export const columnSchema = z.object({
 
 export const identitySchema = z.object({
     name: text,
+    url: httpsUrl,
     jobTitle: text,
     worksFor: text,
     alumniOf: z.array(text).min(1),
