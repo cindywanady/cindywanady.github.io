@@ -95,9 +95,9 @@ upstream package to stay in sync with.
 | `/` | Her name, one plain sentence naming both practices, the two equal columns |
 | `/data/` | Current work at Mekari with the migration sequence strip, the thesis as the featured item, five course projects, earlier roles, skills |
 | `/data/thesis/` | The RAG chatbot: what it is grounded in, the three-arm blind evaluation, supervision |
-| `/yoga/` | Her trainings (YTT 100-hour completed, YTT 200-hour in progress), Hatha yoga, three years of practice, the practice sequence, what practice changed in how she works |
+| `/yoga/` | Her trainings (YTT 100-hour completed, YTT 200-hour in progress), Hatha and Vinyasa yoga, three years of practice, the practice sequence, what practice changed in how she works |
 | `/about/` | Education (Monash, Prasetiya Mulya, the Tsinghua exchange), languages, where the two practices meet |
-| `/contact/` | Email, LinkedIn, GitHub |
+| `/contact/` | LinkedIn, Instagram, GitHub. No email address is published |
 | 404 | A short message and links to both halves |
 
 Primary navigation: `Data`, `Yoga`, `About`, `Contact`. The item for the
@@ -183,7 +183,12 @@ constant hue:
 | `--color-brand-900` | `#521323` | 12.66 |
 | `--color-brand-950` | `#350512` | 15.82 |
 
-**Gray**, anchored at 50 on cream, 200 on sand and 800 on espresso. The light
+**Neutral**, anchored at 50 on cream, 200 on sand and 800 on espresso.
+Untitled UI's semantic tokens (`--color-text-*`, `--color-bg-*`,
+`--color-border-*`) read from Tailwind's `--color-neutral-*`, which the
+starter never defines, so the warm scale is declared as `neutral` in
+`theme.css`. The table keeps the `gray` label for reading; the token name is
+`--color-neutral-N`. The light
 end takes sand's hue and the dark end espresso's, so it stays warm without
 turning pink:
 
@@ -204,7 +209,13 @@ turning pink:
 Text on a sand fill uses gray 700 or darker. Gray 500 and 600 pass on cream but
 not on sand.
 
-The page background is `--color-gray-50`. Body text is `--color-gray-800`.
+The page background is neutral 50 (cream): `--color-bg-primary` is repointed
+from white to it. Body text is neutral 800 (espresso): `--color-text-primary`
+is repointed from neutral 900 to it.
+
+The starter ships `next-themes` with `enableSystem`, which would switch
+readers with a dark OS setting into the dark theme. It is removed and the
+light theme is the only one.
 
 The remaining four supplied colors become single named tokens rather than
 scales, because each has one job:
@@ -244,7 +255,7 @@ else.
 - **Data half:** her CRM migration method, taken from the Mekari bullet in her
   CV: field mapping, validation rules, pre-cutover reconciliation, cutover,
   post-cutover reconciliation. Steps and joining rule in terracotta.
-- **Yoga half:** a practice sequence she supplies (section 5.3). Steps and
+- **Yoga half:** Surya Namaskar A, seven stages (section 5.3). Steps and
   joining rule in olive.
 
 Numbering is permitted here because the order is real: a migration fails if
@@ -325,10 +336,26 @@ project is scaffolded:
 | Years practicing | 3 |
 | Completed training | YTT 100-hour |
 | Training in progress | YTT 200-hour |
-| Style | Hatha yoga |
+| School for the 100-hour | Vidyarasa, https://vidyarasa.id/ |
+| Styles | Hatha yoga, Vinyasa yoga |
+| Practice sequence | Surya Namaskar A |
+| Reflection, in her words | "A lucky encounter with yoga taught me that learning matters more than perfection. Learning, creating, and sharing along the way." |
+| Instagram | https://www.instagram.com/cin.oddysey_yoga/ |
+| LinkedIn | https://www.linkedin.com/in/cindywanady/ |
+| GitHub | https://github.com/cindywanady |
+| Email | None published |
 
-The site names no training school. Trainings carry no school field, so none
-can be added by accident.
+A training's school is optional. The 100-hour training names Vidyarasa and
+links to it; the 200-hour course names none.
+
+The reflection is her own sentence and is rendered as a quotation. Her
+original carries two emoji; section 4.5 bans emoji in copy, so the site drops
+them and changes nothing else.
+
+The Surya Namaskar A strip shows its seven stages in order: Mountain,
+Upward salute, Forward fold, Half lift, Four-limbed staff, Upward-facing dog,
+Downward-facing dog. Each step shows the English name with the Sanskrit
+beneath it.
 
 Trainings are a list, each with a `status` of `completed` or `in_progress`,
 so the 200-hour course moves to `completed` by changing one field. The site
@@ -337,18 +364,9 @@ The 3-year figure is stated as of the date recorded beside it in
 `sources/yoga.md`, so it cannot silently go stale: a test fails once that date
 is more than twelve months old.
 
-**Still required from Cindy.** The build fails until each is present and
-non-empty:
-
-| Field | Module |
-|---|---|
-| A practice sequence she uses, 3 to 8 ordered steps | `yoga.ts` |
-| One sentence on what practice changed in how she works | `yoga.ts` |
-| Email address | `identity.ts` |
-| LinkedIn URL | `identity.ts` |
-| GitHub URL | `identity.ts` |
-
-Each yoga fact also appears in `sources/yoga.md` so its claim has a quote.
+The schema still requires every field above, so removing one fails the
+build. Each yoga fact also appears in `sources/yoga.md` so its claim has a
+quote.
 
 A portrait photo is optional. Every layout must work without one.
 
@@ -385,7 +403,7 @@ content through props.
 | Component | Job | Built from |
 |---|---|---|
 | `SiteHeader` | Name, primary nav, current-item marking | Untitled UI navigation |
-| `SiteFooter` | Contact links, copyright | Plain markup |
+| `SiteFooter` | LinkedIn, Instagram and GitHub links, copyright | Plain markup |
 | `HalfColumn` | One half on the home page: heading, true line, strip, proof lines, link | Composes the three below |
 | `SequenceStrip` | The signature ordered list with the draw-on | Owned markup and CSS |
 | `ProofLine` | One claim rendered as a sentence | Plain markup |
@@ -462,7 +480,8 @@ the key is absent. In CI the key is a repository secret.
   GitHub.
 - `app/sitemap.ts` and `app/robots.ts`, emitted as static files.
 - `public/llms.txt`, a plain summary of both halves and every route.
-- A static Open Graph image per section in `public/og/`, 1200 by 630 WebP.
+- One Open Graph image, 1200 by 630 PNG, generated at build time by
+  `src/app/opengraph-image.tsx` with the site's fonts and palette.
 
 ## 10. Deployment
 
