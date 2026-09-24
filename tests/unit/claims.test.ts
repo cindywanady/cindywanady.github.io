@@ -52,6 +52,16 @@ describe("checkEvidence", () => {
 });
 
 describe("readSource", () => {
+    it("returns only the fact sections, never the file's notes", () => {
+        // sources/cv.md's header records the retracted Monash result. A claim
+        // quoting it must not count as evidence.
+        expect(readSource("cv")).not.toContain("The LaTeX CV said");
+        expect(readSource("cv")).not.toContain("Source of truth");
+        expect(readSource("yoga")).not.toContain("carries two emoji");
+        const retracted = { text: "GPA 3.67, High Distinction.", source: "cv" as const, quote: "GPA 3.67, WAM ~80, High Distinction" };
+        expect(checkEvidence([retracted]).map((p) => p.problem)).toEqual(["quote-not-in-source"]);
+    });
+
     it("reads the committed source files", () => {
         expect(readSource("cv")).toContain("Mekari");
         expect(readSource("yoga")).toContain("Vidyarasa");

@@ -34,8 +34,16 @@ export function numbersIn(s: string): string[] {
     return (s.match(/\d[\d,]*(?:\.\d+)?/g) ?? []).map((n) => n.replace(/,/g, ""));
 }
 
+/**
+ * The facts in sources/<source>.md: everything from the first "## " heading on,
+ * with HTML comments removed. The header above that heading and any comment
+ * are notes about the file, such as a record of a corrected figure, and a
+ * claim must never be able to quote them as evidence.
+ */
 export function readSource(source: Source): string {
-    return readFileSync(join(process.cwd(), "sources", `${source}.md`), "utf8");
+    const raw = readFileSync(join(process.cwd(), "sources", `${source}.md`), "utf8");
+    const body = raw.slice(Math.max(0, raw.indexOf("\n## ")));
+    return body.replace(/<!--[\s\S]*?-->/g, "");
 }
 
 export function checkEvidence(claims: Claim[], read: (s: Source) => string = readSource): EvidenceProblem[] {

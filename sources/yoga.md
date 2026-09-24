@@ -24,8 +24,10 @@ Svanasana), Downward-facing dog (Adho Mukha Svanasana).
 
 A lucky encounter with yoga taught me that learning matters more than perfection. Learning, creating, and sharing along the way.
 
+<!--
 Her original carries two emoji after "perfection". The site drops them because
 emoji are banned in site copy; no word is changed.
+-->
 
 ## Profiles
 
