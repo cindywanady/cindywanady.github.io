@@ -1,6 +1,6 @@
 # Verification
 
-`npm run check` runs everything below except the claim check. CI runs the same, then the claim check if the secret exists, then deploys from `main`. CI also warns, without failing, when the yoga years figure in `sources/yoga.md` is more than a year old.
+`npm run check` runs everything below except the claim check. CI runs the same, then the claim check if the secret exists, then deploys from `main`.
 
 ## Unit tests, `npm test`
 

@@ -12,7 +12,7 @@ Cindy Wanady works in two practices and the site gives them equal weight.
   Monash University, completed September 2026 with a WAM of 80.25, a High
   Distinction average. Her thesis built a retrieval-augmented chatbot for
   depression care in Indonesian primary care.
-- **Yoga.** Three years of practice. She holds a 100-hour yoga teacher training
+- **Yoga.** Practicing since 2022. She holds a 100-hour yoga teacher training
   (YTT) certificate and is partway through a 200-hour YTT. She does not teach.
 
 Readers arrive for one practice or the other. A recruiter looking for her
@@ -96,7 +96,7 @@ upstream package to stay in sync with.
 | `/` | Her name, one plain sentence naming both practices, the two equal columns |
 | `/data/` | Current work at Mekari with the migration sequence strip, the thesis as the featured item, five course projects, earlier roles, skills |
 | `/data/thesis/` | The RAG chatbot: what it is grounded in, the three-arm blind evaluation, supervision |
-| `/yoga/` | Her trainings (YTT 100-hour completed, YTT 200-hour in progress), Hatha and Vinyasa yoga, three years of practice, the practice sequence, what practice changed in how she works |
+| `/yoga/` | Her trainings (YTT 100-hour completed, YTT 200-hour in progress), Hatha and Vinyasa yoga, practicing since 2022, the practice sequence, what practice changed in how she works |
 | `/about/` | Education (Monash, Prasetiya Mulya, the Tsinghua exchange), languages, where the two practices meet |
 | `/contact/` | LinkedIn, Instagram, GitHub. No email address is published |
 | 404 | A short message and links to both halves |
@@ -334,7 +334,7 @@ project is scaffolded:
 
 | Fact | Value |
 |---|---|
-| Years practicing | 3 |
+| Practicing since | 2022 |
 | Completed training | YTT 100-hour |
 | Training in progress | YTT 200-hour |
 | School for the 100-hour | Vidyarasa, https://vidyarasa.id/ |

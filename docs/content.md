@@ -45,4 +45,4 @@ This is how the Monash result was corrected. The CV said GPA 3.67 and High Disti
 - The yoga strip is captioned "A sequence I practice" and does not name the sequence. A test keeps the name off the page.
 - Her CV had two details marked unconfirmed: the number of psychologist raters, and the baseline behind the 29% RMSE gain. Neither appears until it is in `sources/cv.md`.
 - The 200-hour yoga training shows as in progress. Change its `status` in `content/yoga.ts` when it is done.
-- "3 years" is true as of the date beside it in `sources/yoga.md`. CI warns once that date is over a year old. It warns rather than fails, so an unrelated fix can still deploy. Update the figure and the date together.
+- Her yoga practice is stated as "since 2022", a fixed year, so it never needs updating.

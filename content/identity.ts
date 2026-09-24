@@ -14,7 +14,7 @@ export const identity = {
         {
             text: "I also practice Hatha and Vinyasa yoga.",
             source: "yoga",
-            quote: "Practicing Hatha yoga and Vinyasa yoga for 3 years",
+            quote: "Practicing Hatha yoga and Vinyasa yoga since 2022",
         },
     ],
     profiles: [

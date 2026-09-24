@@ -3,9 +3,9 @@ export const yoga = {
     column: {
         heading: "Yoga",
         trueLine: {
-            text: "I have practiced Hatha and Vinyasa yoga for 3 years.",
+            text: "I have practiced Hatha and Vinyasa yoga since 2022.",
             source: "yoga",
-            quote: "Practicing Hatha yoga and Vinyasa yoga for 3 years",
+            quote: "Practicing Hatha yoga and Vinyasa yoga since 2022",
         },
         strip: {
             title: "A sequence I practice",
