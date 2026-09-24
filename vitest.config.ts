@@ -8,5 +8,8 @@ export default defineConfig({
         environment: "jsdom",
         include: ["tests/unit/**/*.test.{ts,tsx}"],
         setupFiles: ["tests/unit/setup.ts"],
+        // Rendering a whole page in jsdom took just under Vitest's 5s default
+        // and failed once under load. A timeout in CI blocks the deploy.
+        testTimeout: 15_000,
     },
 });

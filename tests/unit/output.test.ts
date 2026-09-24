@@ -18,6 +18,8 @@ describe.skipIf(!built)("built home page", () => {
         expect(title).toBe("Cindy Wanady: Data and Yoga");
         expect(description.startsWith("Data and yoga.")).toBe(true);
         expect(description.length).toBeLessThanOrEqual(155);
+        expect(description).toContain("tech industry");
+        expect(description).not.toContain("Mekari");
         expect(html).toContain('<meta property="og:title" content="Cindy Wanady: Data and Yoga"');
     });
 
