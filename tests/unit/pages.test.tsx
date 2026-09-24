@@ -72,9 +72,10 @@ describe("/yoga/", () => {
         expect(screen.getByRole("link", { name: "Vidyarasa" })).toHaveAttribute("href", "https://vidyarasa.id/");
     });
 
-    it("shows Surya Namaskar A and quotes her reflection", () => {
-        render(<YogaPage />);
-        expect(within(screen.getByRole("figure", { name: /Surya Namaskar A/ })).getAllByRole("listitem")).toHaveLength(7);
+    it("shows her practice sequence without naming it, and quotes her reflection", () => {
+        const { container } = render(<YogaPage />);
+        expect(within(screen.getByRole("figure", { name: "A sequence I practice" })).getAllByRole("listitem")).toHaveLength(7);
+        expect(container.textContent).not.toMatch(/Surya Namaskar/i);
         expect(screen.getByText(/learning matters more than perfection/).closest("blockquote")).not.toBeNull();
     });
 });

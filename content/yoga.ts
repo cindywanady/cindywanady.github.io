@@ -8,7 +8,7 @@ export const yoga = {
             quote: "Practicing Hatha yoga and Vinyasa yoga for 3 years",
         },
         strip: {
-            title: "Surya Namaskar A, as I practice it",
+            title: "A sequence I practice",
             steps: [
                 { label: "Mountain", detail: "Tadasana" },
                 { label: "Upward salute", detail: "Urdhva Hastasana" },
@@ -19,7 +19,7 @@ export const yoga = {
                 { label: "Downward-facing dog", detail: "Adho Mukha Svanasana" },
             ],
             evidence: {
-                text: "I practice Surya Namaskar A.",
+                text: "I practice this sequence.",
                 source: "yoga",
                 quote: "Practices Surya Namaskar A",
             },

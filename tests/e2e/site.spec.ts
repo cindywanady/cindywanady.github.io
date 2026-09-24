@@ -75,7 +75,7 @@ test.describe("a reader who prefers reduced motion", () => {
 
 test("a reader who allows motion sees the strips draw in", async ({ page }) => {
     await page.goto("/yoga/");
-    const strip = page.getByRole("figure", { name: /Surya Namaskar A/ });
+    const strip = page.getByRole("figure", { name: "A sequence I practice" });
     await strip.scrollIntoViewIfNeeded();
     await expect(strip).toHaveAttribute("data-state", "drawn");
     await expect(strip.locator(".strip-step").last()).toHaveCSS("opacity", "1");
