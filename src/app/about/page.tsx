@@ -1,6 +1,7 @@
 import { site } from "@content";
 import type { Metadata } from "next";
 import { PageIntro } from "@/components/site/page-intro";
+import { Section } from "@/components/site/section";
 
 const page = site.pages.about;
 
@@ -13,8 +14,7 @@ export default function AboutPage() {
                 <p>{site.identity.intro.map((c) => c.text).join(" ")}</p>
             </PageIntro>
 
-            <section className="flex flex-col gap-10 border-t border-secondary pt-10 pb-16">
-                <h2 className="font-display text-2xl font-semibold tracking-tight text-primary">{page.text.education}</h2>
+            <Section title={page.text.education} lede={page.ledes.education}>
                 {site.education.map((e) => (
                     <article key={e.award} className="grid gap-2 md:grid-cols-[11rem_1fr] md:gap-10">
                         <p className="font-display text-sm text-tertiary tabular-nums md:pt-1">{e.dates}</p>
@@ -31,10 +31,9 @@ export default function AboutPage() {
                         </div>
                     </article>
                 ))}
-            </section>
+            </Section>
 
-            <section className="flex flex-col gap-6 border-t border-secondary pt-10 pb-16">
-                <h2 className="font-display text-2xl font-semibold tracking-tight text-primary">{page.text.languages}</h2>
+            <Section title={page.text.languages}>
                 <dl className="flex flex-col gap-3">
                     {site.identity.languages.map((l) => (
                         <div key={l.name} className="grid gap-1 md:grid-cols-[11rem_1fr] md:gap-10">
@@ -43,7 +42,7 @@ export default function AboutPage() {
                         </div>
                     ))}
                 </dl>
-            </section>
+            </Section>
         </>
     );
 }

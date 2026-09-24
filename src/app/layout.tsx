@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Familjen_Grotesk, Source_Serif_4 } from "next/font/google";
 import { PersonJsonLd } from "@/components/site/person-json-ld";
+import { RevealRoot } from "@/components/site/reveal-root";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteHeader } from "@/components/site/site-header";
 import { SkipLink } from "@/components/site/skip-link";
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                     {children}
                 </main>
                 <SiteFooter />
+                <RevealRoot />
                 <PersonJsonLd />
             </body>
         </html>

@@ -1,39 +1,30 @@
-import type { ReactNode } from "react";
 import { site } from "@content";
 import type { Metadata } from "next";
 import { PageIntro } from "@/components/site/page-intro";
 import { ProjectEntry } from "@/components/site/project-entry";
 import { RoleEntry } from "@/components/site/role-entry";
+import { Section } from "@/components/site/section";
 import { SequenceStrip } from "@/components/site/sequence-strip";
 
 const page = site.pages.data;
 
 export const metadata: Metadata = { title: page.title, description: page.description };
 
-function Section({ title, children }: { title: string; children: ReactNode }) {
-    return (
-        <section className="flex flex-col gap-10 border-t border-secondary pt-10 pb-16">
-            <h2 className="font-display text-2xl font-semibold tracking-tight text-primary">{title}</h2>
-            {children}
-        </section>
-    );
-}
-
 export default function DataPage() {
     const { data, projects } = site;
     return (
         <>
-            <PageIntro title={page.title}>
+            <PageIntro title={page.title} field="data">
                 <p>{data.column.trueLine.text}</p>
             </PageIntro>
 
-            <Section title={page.text.current}>
+            <Section title={page.text.current} lede={page.ledes.current}>
                 <RoleEntry role={data.current}>
                     <SequenceStrip title={data.column.strip.title} steps={data.column.strip.steps} tone="data" />
                 </RoleEntry>
             </Section>
 
-            <Section title={page.text.thesis}>
+            <Section title={page.text.thesis} lede={page.ledes.thesis}>
                 <ProjectEntry project={projects.thesis} featured>
                     <a
                         href="/data/thesis/"
@@ -44,7 +35,7 @@ export default function DataPage() {
                 </ProjectEntry>
             </Section>
 
-            <Section title={page.text.course}>
+            <Section title={page.text.course} lede={page.ledes.course}>
                 <div className="grid gap-12 md:grid-cols-2">
                     {projects.course.map((project) => (
                         <ProjectEntry key={project.title} project={project} />
@@ -52,7 +43,7 @@ export default function DataPage() {
                 </div>
             </Section>
 
-            <Section title={page.text.earlier}>
+            <Section title={page.text.earlier} lede={page.ledes.earlier}>
                 {data.earlier.map((role) => (
                     <RoleEntry key={role.organization} role={role} />
                 ))}
@@ -62,7 +53,7 @@ export default function DataPage() {
                 ))}
             </Section>
 
-            <Section title={page.text.skills}>
+            <Section title={page.text.skills} lede={page.ledes.skills}>
                 <dl className="grid gap-6 md:grid-cols-2">
                     {data.skills.map((s) => (
                         <div key={s.group} className="flex flex-col gap-1.5">

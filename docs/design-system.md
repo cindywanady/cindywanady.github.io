@@ -34,6 +34,16 @@ The site is light only. There is no dark theme. The components' `dark:` classes 
 - The strip follows its container's width. Below 36rem it runs vertically, which is why both home-page strips are vertical at desktop width.
 - It renders complete on the server. Where the browser can observe scrolling and the reader allows motion, the steps draw in on arrival. Under reduced motion there is no animation.
 
+## The breathing field
+
+`src/components/site/breathing-field.tsx` is the ambient background behind each page's opening: points on a slowly turning sphere whose radius swells and settles on a six-second breath. It takes the page's half, with terracotta and burgundy on data pages, olive and sand on the yoga page, and both elsewhere. It is decoration, hidden from screen readers, faint on phones so the headline stays readable, still under reduced motion, and paused when the tab is hidden or it is off screen.
+
+## Depth
+
+The two home halves are raised panels: a sand-tinted fill, rounded corners, and their tone as a band along the top edge. Projects on `/data/` are cards on the same pattern, and the one featured item carries a mustard band. Both lift slightly on hover.
+
+Sections rise in as they scroll into view (`src/components/site/reveal-root.tsx`). Only a section that starts below the fold is ever held back, so nothing on screen at load blinks out.
+
 ## Banned
 
 `tests/unit/banned-patterns.test.ts` scans `src/` for these:
@@ -44,7 +54,7 @@ The site is light only. There is no dark theme. The components' `dark:` classes 
 - vertical accent rails
 - emoji
 
-The review also checks for things a regex cannot: decorative numbering, rows of big numbers with small labels, and animation beyond the strip.
+The review also checks for things a regex cannot: decorative numbering, rows of big numbers with small labels, and motion beyond the four listed in `CLAUDE.md`.
 
 ## Components
 

@@ -11,7 +11,7 @@ export default function ThesisPage() {
     const thesis = site.projects.thesis;
     return (
         <article>
-            <PageIntro title={thesis.title}>
+            <PageIntro title={thesis.title} field="data">
                 <p className="font-display text-base text-tertiary md:text-lg">
                     {thesis.context}, {thesis.year}
                 </p>

@@ -8,13 +8,29 @@ export const metadata: Metadata = {
     description: site.pages.home.description,
 };
 
-export default function HomePage() {
+/** The headline with one word set in terracotta, the data half's color. */
+function Emphasis({ text, word }: { text: string; word: string }) {
+    const at = text.indexOf(word);
+    if (at === -1) return <>{text}</>;
     return (
         <>
-            <PageIntro title={site.identity.name}>
-                <p>{site.identity.intro.map((c) => c.text).join(" ")}</p>
+            {text.slice(0, at)}
+            <span className="text-data">{word}</span>
+            {text.slice(at + word.length)}
+        </>
+    );
+}
+
+export default function HomePage() {
+    const { hero } = site.identity;
+    return (
+        <>
+            <PageIntro title={<Emphasis text={hero.claim.text} word={hero.emphasis} />}>
+                <p>
+                    {site.pages.home.text.greeting} {site.identity.intro.map((c) => c.text).join(" ")}
+                </p>
             </PageIntro>
-            <div className="grid gap-16 md:grid-cols-2 md:gap-12">
+            <div className="grid gap-8 md:grid-cols-2 md:gap-8">
                 <HalfColumn column={site.data.column} tone="data" />
                 <HalfColumn column={site.yoga.column} tone="yoga" />
             </div>

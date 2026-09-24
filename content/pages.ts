@@ -8,7 +8,9 @@ export const pages = {
     home: {
         title: "Cindy Wanady",
         description: "Cindy Wanady works in data at Mekari and practices Hatha and Vinyasa yoga.",
-        text: {},
+        text: {
+            greeting: "I'm Cindy Wanady.",
+        },
     },
     data: {
         title: "Data work",
@@ -22,6 +24,13 @@ export const pages = {
             formative: "Before that",
             skills: "Skills",
         },
+        ledes: {
+            current: "CRM data, analytics and automation at Mekari, since February 2022.",
+            thesis: "Supervised by A/Prof. Derry Wijaya at Monash University Indonesia.",
+            course: "Five projects from my Master of Data Science at Monash.",
+            earlier: "Tax at PwC Indonesia and finance at JET Express, then earlier roles.",
+            skills: "The tools I work with, grouped as they are in my CV.",
+        },
     },
     thesis: {
         title: "Master's thesis",
@@ -30,6 +39,7 @@ export const pages = {
             supervisedBy: "Supervised by",
             back: "Back to data work",
         },
+        ledes: {},
     },
     yoga: {
         title: "Yoga practice",
@@ -43,6 +53,10 @@ export const pages = {
             words: "In my words",
             instagram: "Follow my practice on Instagram",
         },
+        ledes: {
+            training: "Teacher training at Vidyarasa, with a longer course in progress.",
+            sequence: "Seven poses, in the order I practice them.",
+        },
     },
     about: {
         title: "About",
@@ -51,6 +65,9 @@ export const pages = {
             education: "Education",
             languages: "Languages",
         },
+        ledes: {
+            education: "Degrees from Monash and Prasetiya Mulya, and an exchange at Tsinghua.",
+        },
     },
     contact: {
         title: "Contact",
@@ -58,6 +75,7 @@ export const pages = {
         text: {
             lede: "Find me on LinkedIn for data work, Instagram for yoga, and GitHub for code.",
         },
+        ledes: {},
     },
     notFound: {
         title: "Page not found",
@@ -67,5 +85,6 @@ export const pages = {
             data: "Data work",
             yoga: "Yoga practice",
         },
+        ledes: {},
     },
 };

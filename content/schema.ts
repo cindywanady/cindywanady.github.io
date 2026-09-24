@@ -43,6 +43,8 @@ export const identitySchema = z.object({
     jobTitle: text,
     worksFor: text,
     alumniOf: z.array(text).min(1),
+    /** The home page's headline: one sentence of hers, with one word set apart. */
+    hero: z.object({ claim: claimSchema, emphasis: text }),
     intro: z.array(claimSchema).length(2),
     profiles: z.array(linkSchema).length(3),
     knowsAbout: z.array(text).min(1),
@@ -110,7 +112,7 @@ export const educationSchema = z.array(
 
 export const navigationSchema = z.array(z.object({ label: text, href: text, owns: z.array(text) })).length(4);
 
-const pageMeta = z.object({ title: text, description: text, text: z.record(z.string(), text) });
+const pageMeta = z.object({ title: text, description: text, text: z.record(z.string(), text), ledes: z.record(z.string(), text).default({}) });
 export const pagesSchema = z.object({
     home: pageMeta,
     data: pageMeta,

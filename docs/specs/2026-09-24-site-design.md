@@ -281,7 +281,7 @@ detect:
 - frosted or glass cards
 - vertical accent rails beside headings, cards or prose
 - emoji
-- animation beyond the sequence strip
+- motion beyond the breathing field, the strip draw-on, scroll reveals and hover lift (revised on 2026-09-24 when the design gained depth)
 
 ## 5. Content
 

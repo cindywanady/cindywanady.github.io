@@ -9,7 +9,14 @@ import { cx } from "@/utils/cx";
  */
 export function ProjectEntry({ project, featured = false, children }: { project: Project; featured?: boolean; children?: ReactNode }) {
     return (
-        <article data-featured={featured ? "" : undefined} className={cx("flex flex-col gap-3", featured && "border-t-4 border-feature pt-6")}>
+        <article
+            data-featured={featured ? "" : undefined}
+            data-reveal=""
+            className={cx(
+                "flex flex-col gap-3 rounded-2xl bg-neutral-100 transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(74,52,40,0.45)] motion-reduce:transition-none motion-reduce:hover:translate-y-0",
+                featured ? "p-8 pt-10 shadow-[inset_0_6px_0_var(--color-feature)] md:p-10 md:pt-12" : "p-6",
+            )}
+        >
             <h3 className={cx("font-display font-semibold text-primary", featured ? "text-2xl" : "text-lg")}>{project.title}</h3>
             <p className="font-display text-sm text-tertiary">
                 {project.context}, {project.year}

@@ -1,32 +1,23 @@
-import type { ReactNode } from "react";
 import { site } from "@content";
 import type { Metadata } from "next";
 import { PageIntro } from "@/components/site/page-intro";
+import { Section } from "@/components/site/section";
 import { SequenceStrip } from "@/components/site/sequence-strip";
 
 const page = site.pages.yoga;
 
 export const metadata: Metadata = { title: page.title, description: page.description };
 
-function Section({ title, children }: { title: string; children: ReactNode }) {
-    return (
-        <section className="flex flex-col gap-8 border-t border-secondary pt-10 pb-16">
-            <h2 className="font-display text-2xl font-semibold tracking-tight text-primary">{title}</h2>
-            {children}
-        </section>
-    );
-}
-
 export default function YogaPage() {
     const { yoga, identity } = site;
     const instagram = identity.profiles.find((p) => p.label === "Instagram")!;
     return (
         <>
-            <PageIntro title={page.title}>
+            <PageIntro title={page.title} field="yoga">
                 <p>{yoga.column.trueLine.text}</p>
             </PageIntro>
 
-            <Section title={page.text.training}>
+            <Section title={page.text.training} lede={page.ledes.training}>
                 <ul className="flex flex-col gap-5">
                     {yoga.trainings.map((t) => (
                         <li key={t.hours} className="grid gap-1 md:grid-cols-[11rem_1fr] md:gap-10">
@@ -50,11 +41,11 @@ export default function YogaPage() {
                 </p>
             </Section>
 
-            <Section title={page.text.sequence}>
+            <Section title={page.text.sequence} lede={page.ledes.sequence}>
                 <SequenceStrip title={yoga.column.strip.title} steps={yoga.column.strip.steps} tone="yoga" />
             </Section>
 
-            <Section title={page.text.words}>
+            <Section title={page.text.words} lede={page.ledes.words}>
                 <blockquote className="max-w-[36rem] border-t-4 border-yoga pt-6 text-2xl leading-snug text-primary md:text-3xl">
                     <p>{yoga.reflection.text}</p>
                 </blockquote>

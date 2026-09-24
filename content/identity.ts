@@ -5,6 +5,14 @@ export const identity = {
     jobTitle: "Senior CRM Data, Analytics and Automation",
     worksFor: "Mekari",
     alumniOf: ["Monash University", "Prasetiya Mulya University"],
+    hero: {
+        claim: {
+            text: "Learning matters more than perfection.",
+            source: "yoga",
+            quote: "learning matters more than perfection",
+        },
+        emphasis: "Learning",
+    },
     intro: [
         {
             text: "I work in data, across CRM automation, data migration and operational reporting.",

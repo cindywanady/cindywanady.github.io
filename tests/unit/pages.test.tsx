@@ -27,9 +27,13 @@ describe("home", () => {
         expect(anatomy(yoga)).toEqual(anatomy(data));
     });
 
-    it("has one h1, her name", () => {
+    it("leads with her own words, and names her in the lede", () => {
         render(<HomePage />);
-        expect(screen.getAllByRole("heading", { level: 1 }).map((h) => h.textContent)).toEqual(["Cindy Wanady"]);
+        const [h1] = screen.getAllByRole("heading", { level: 1 });
+        expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
+        expect(h1).toHaveTextContent("Learning matters more than perfection.");
+        expect(within(h1).getByText("Learning")).toHaveClass("text-data");
+        expect(screen.getByText(/I'm Cindy Wanady\./)).toBeInTheDocument();
     });
 
     it("links each half to its section", () => {
@@ -40,6 +44,11 @@ describe("home", () => {
 });
 
 describe("/data/", () => {
+    it("gives each section a plain one-line lede", () => {
+        render(<DataPage />);
+        expect(screen.getByText("Five projects from my Master of Data Science at Monash.")).toBeInTheDocument();
+    });
+
     it("shows the migration strip and exactly one featured item, the thesis", () => {
         const { container } = render(<DataPage />);
         expect(screen.getByRole("figure", { name: "How I run a CRM migration" })).toBeInTheDocument();
