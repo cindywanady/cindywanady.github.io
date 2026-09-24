@@ -24,14 +24,14 @@ npm run check      # typecheck, format, build, unit tests, browser tests
 
 All copy lives in `content/`. Pages and components hold none.
 
-| To change | Edit |
-|---|---|
-| Name, intro, profile links | `content/identity.ts` |
-| Mekari, earlier roles, skills, the data half of the home page | `content/data.ts` |
-| The thesis and course projects | `content/projects.ts` |
-| Trainings, styles, the yoga sequence, the yoga half | `content/yoga.ts` |
-| Degrees | `content/education.ts` |
-| Page titles, descriptions, headings, link labels | `content/pages.ts` |
+| To change                                                     | Edit                   |
+| ------------------------------------------------------------- | ---------------------- |
+| Name, intro, profile links                                    | `content/identity.ts`  |
+| Mekari, earlier roles, skills, the data half of the home page | `content/data.ts`      |
+| The thesis and course projects                                | `content/projects.ts`  |
+| Trainings, styles, the yoga sequence, the yoga half           | `content/yoga.ts`      |
+| Degrees                                                       | `content/education.ts` |
+| Page titles, descriptions, headings, link labels              | `content/pages.ts`     |
 
 Every factual sentence is a claim: the text shown, plus a quote copied word for word from one of two source files.
 

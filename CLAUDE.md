@@ -18,9 +18,9 @@ Cindy Wanady's personal site. Two practices, data and yoga, with equal weight. N
 
 ## Read before touching
 
-| Working on | Read |
-|---|---|
-| Copy, facts, claims | `docs/content.md` |
-| Colors, type, the strip, components | `docs/design-system.md` |
-| Tests, CI, the claim check | `docs/verification.md` |
-| Why it is built this way | `docs/specs/2026-09-24-site-design.md` |
+| Working on                          | Read                                   |
+| ----------------------------------- | -------------------------------------- |
+| Copy, facts, claims                 | `docs/content.md`                      |
+| Colors, type, the strip, components | `docs/design-system.md`                |
+| Tests, CI, the claim check          | `docs/verification.md`                 |
+| Why it is built this way            | `docs/specs/2026-09-24-site-design.md` |
