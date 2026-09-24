@@ -12,6 +12,10 @@ describe("currentNavHref", () => {
         ["/", null],
         ["/nowhere/", null],
         ["/database/", null],
+        // GitHub Pages serves 404.html at the missing URL. Its prerendered nav
+        // marks nothing, so the client must agree or React reports a mismatch.
+        ["/data/old-project/", null],
+        ["/yoga/missing/", null],
     ])("%s -> %s", (path, expected) => {
         expect(currentNavHref(path, site.navigation)).toBe(expected);
     });
