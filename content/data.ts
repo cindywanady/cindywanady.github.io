@@ -3,7 +3,7 @@ export const data = {
     column: {
         heading: "Data",
         trueLine: {
-            text: "I build the CRM systems that produce data and the models built on top of them.",
+            text: "I work on both sides of the pipeline: CRM systems that generate data, and models built on them.",
             source: "cv",
             quote: "Works both sides of the pipeline, CRM systems that generate data and the models built on top of them.",
         },
@@ -52,7 +52,7 @@ export const data = {
             {
                 text: "I automated a stakeholder report that took about 2 hours per event. It now takes a few minutes.",
                 source: "cv",
-                quote: "cutting turnaround from about 2 hours to a few minutes per event",
+                quote: "Automated a multi-step stakeholder reporting workflow that previously required manual per-event downloads and compilation, cutting turnaround from about 2 hours to a few minutes per event",
             },
             {
                 text: "I connected CRM data to a document generation platform, making document generation 5× faster.",
@@ -70,7 +70,7 @@ export const data = {
                 quote: "pre- and post-cutover reconciliation checks so reporting stayed consistent through the transition",
             },
             {
-                text: "I built Python integrations with Zoho's REST API to reach data the native features could not.",
+                text: "I built Python integrations with Zoho's REST API to retrieve data the native features did not readily expose.",
                 source: "cv",
                 quote: "Built Python integrations with Zoho's REST API to retrieve data not readily accessible through native features",
             },
@@ -120,7 +120,7 @@ export const data = {
                 {
                     text: "I reconciled receivables across 23 branches and kept collection data auditable.",
                     source: "cv",
-                    quote: "Reconciled receivables across 23 branches and multiple sender accounts",
+                    quote: "Reconciled receivables across 23 branches and multiple sender accounts, resolving cash-on-delivery, payment-method, and package-value discrepancies to keep collection data auditable.",
                 },
                 {
                     text: "I supervised an accounts receivable team of 3.",

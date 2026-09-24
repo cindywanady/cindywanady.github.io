@@ -18,7 +18,7 @@ export const education = [
             {
                 text: "I completed it while working full time.",
                 source: "cv",
-                quote: "Sept 2026, while working full time",
+                quote: "Completed an MSc in Data Science at Monash University with Distinction (GPA 3.563 / 4.0, WAM 80.25, a High Distinction average), Sept 2026, while working full time.",
             },
         ],
     },
