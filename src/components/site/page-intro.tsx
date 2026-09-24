@@ -38,7 +38,7 @@ export function PageIntro({
                     </picture>
                 )}
                 {scene && !showPortrait && <img src={scene} alt="" width="1536" height="1024" className="intro-scene" />}
-                {portrait && <img src="/botanical-branch.webp" alt="" width="1024" height="1536" className="intro-botanical" />}
+                {!scene && !showPortrait && <img src="/botanical-branch.webp" alt="" width="1024" height="1536" className="intro-botanical" />}
             </div>
         </div>
     );

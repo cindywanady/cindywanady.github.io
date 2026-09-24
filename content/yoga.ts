@@ -8,7 +8,7 @@ export const yoga = {
             quote: "Practicing Hatha yoga and Vinyasa yoga since 2022",
         },
         strip: {
-            title: "A sequence I practice",
+            title: "Opening flow of Sun Salutation A",
             steps: [
                 { label: "Mountain", detail: "Tadasana" },
                 { label: "Upward salute", detail: "Urdhva Hastasana" },
@@ -70,10 +70,4 @@ export const yoga = {
             },
         },
     ],
-
-    reflection: {
-        text: "A lucky encounter with yoga taught me that learning matters more than perfection. Learning, creating, and sharing along the way.",
-        source: "yoga",
-        quote: "A lucky encounter with yoga taught me that learning matters more than perfection. Learning, creating, and sharing along the way.",
-    },
 };

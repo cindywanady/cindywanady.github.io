@@ -42,7 +42,7 @@ This is how the Monash result was corrected. The CV said GPA 3.67 and High Disti
 ## Held back on purpose
 
 - No email address is published. Contact is LinkedIn, Instagram and GitHub, and a test enforces it.
-- The yoga strip is captioned "A sequence I practice" and does not name the sequence. A test keeps the name off the page.
+- The yoga strip names the opening flow of Sun Salutation A. The page makes clear that a full round returns to standing.
 - Her CV had two details marked unconfirmed: the number of psychologist raters, and the baseline behind the 29% RMSE gain. Neither appears until it is in `sources/cv.md`.
 - The 200-hour yoga training shows as in progress. Change its `status` in `content/yoga.ts` when it is done.
 - Her yoga practice is stated as "since 2022", a fixed year, so it never needs updating.

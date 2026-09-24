@@ -34,7 +34,7 @@ Both families load from `public/fonts/`, so the static build needs no font downl
 
 - The rule and markers take the half's color. The numbers stay espresso so they pass contrast.
 - The strip follows its container's width. Below 36rem it runs vertically so labels stay readable.
-- It renders complete on the server. Where the browser can observe scrolling and the reader allows motion, the steps draw in on arrival. Under reduced motion there is no animation.
+- It renders complete on the server. The labels remain visible while the connecting rule draws on arrival. Under reduced motion there is no animation.
 
 ## Chakra and images
 
@@ -44,7 +44,7 @@ The homepage and About page use Cindy's supplied portrait, converted to WebP at 
 
 ## Depth
 
-The two home sections use fine rules in terracotta and olive. This gives the evidence space without placing it in heavy cards. Projects on `/data/` retain soft panels, and the featured thesis carries a mustard band.
+The two home sections use generous space, clear type, and distinct practice marks. Projects on `/data/` retain soft panels, while the featured thesis uses a full-width image.
 
 All content stays visible as a page loads. Project panels may lift on hover, and sequence strips may draw when they enter view.
 

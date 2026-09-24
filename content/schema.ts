@@ -98,7 +98,6 @@ export const yogaSchema = z.object({
     column: columnSchema,
     styles: z.array(text).min(1),
     trainings: z.array(trainingSchema).min(1),
-    reflection: claimSchema,
 });
 
 export const educationSchema = z.array(

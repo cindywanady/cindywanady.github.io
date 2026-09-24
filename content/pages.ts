@@ -14,12 +14,12 @@ export const pages = {
     },
     data: {
         title: "Data science and CRM",
-        description: "CRM automation, data migration and reporting at Mekari, and a master's thesis and course projects at Monash.",
+        description: "CRM automation and data migration at Mekari, plus applied machine learning projects and a research thesis.",
         text: {
             current: "Current work",
             thesis: "Master's thesis",
             thesisLink: "Read about the thesis",
-            course: "Course projects",
+            course: "Projects",
             earlier: "Earlier work",
             formative: "Before that",
             skills: "Skills",
@@ -27,7 +27,6 @@ export const pages = {
         ledes: {
             current: "CRM data, analytics and automation at Mekari, since February 2022.",
             thesis: "Supervised by A/Prof. Derry Wijaya at Monash University Indonesia.",
-            course: "Five projects from my Master of Data Science at Monash.",
             earlier: "Tax at PwC Indonesia and finance at JET Express, then earlier roles.",
             skills: "The tools I work with, grouped as they are in my CV.",
         },
@@ -49,13 +48,12 @@ export const pages = {
             training: "Training",
             completed: "Completed",
             inProgress: "In progress",
-            sequence: "Sequence",
-            words: "In my words",
+            sequence: "Practice sequence",
             instagram: "Follow my practice on Instagram",
         },
         ledes: {
             training: "Teacher training at Vidyarasa, with a longer course in progress.",
-            sequence: "Seven poses, in the order I practice them.",
+            sequence: "These are the first seven poses. A full round returns to standing after Downward-facing dog.",
         },
     },
     about: {

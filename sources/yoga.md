@@ -20,6 +20,8 @@ Hastasana), Forward fold (Uttanasana), Half lift (Ardha Uttanasana),
 Four-limbed staff (Chaturanga Dandasana), Upward-facing dog (Urdhva Mukha
 Svanasana), Downward-facing dog (Adho Mukha Svanasana).
 
+The listed poses cover the opening flow. A complete Sun Salutation A then returns through a half lift, forward fold, upward salute, and standing, as shown in [AshtangaYoga.info's sequence](https://www.ashtangayoga.info/ashtanga-yoga/surya-namaskara-a-sun-salutation/).
+
 ## In her words
 
 A lucky encounter with yoga taught me that learning matters more than perfection. Learning, creating, and sharing along the way.

@@ -28,6 +28,7 @@ Playwright over `out/`, served the way GitHub Pages serves it by `scripts/serve-
 - The first Tab reaches the skip link, with a visible focus ring.
 - A reader with a dark OS still gets the light theme.
 - Reduced motion shows every strip step at once.
+- Reduced motion keeps the chakra still while the portrait remains visible.
 - An unknown path returns the not-found page with a 404.
 
 ## Claim check, `npm run claims`

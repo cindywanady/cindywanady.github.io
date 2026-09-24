@@ -16,7 +16,7 @@ export default function ThesisPage() {
                     {thesis.context}, {thesis.year}
                 </p>
             </PageIntro>
-            <div className="flex max-w-[40rem] flex-col gap-6 border-t-4 border-feature pt-8 text-lg leading-relaxed text-primary">
+            <div className="flex max-w-[40rem] flex-col gap-6 pt-8 text-lg leading-relaxed text-primary">
                 {thesis.claims.map((claim) => (
                     <p key={claim.text}>{claim.text}</p>
                 ))}

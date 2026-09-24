@@ -44,9 +44,11 @@ describe("home", () => {
 });
 
 describe("/data/", () => {
-    it("gives each section a plain one-line lede", () => {
+    it("presents applied projects without coursework labels", () => {
         render(<DataPage />);
-        expect(screen.getByText("Five projects from my Master of Data Science at Monash.")).toBeInTheDocument();
+        const projects = screen.getByRole("heading", { level: 2, name: "Projects" }).closest("section")!;
+        expect(projects).not.toHaveTextContent("Monash University");
+        expect(projects).not.toHaveTextContent("Course projects");
     });
 
     it("shows the migration strip and exactly one featured item, the thesis", () => {
@@ -57,7 +59,7 @@ describe("/data/", () => {
         expect(featured[0]).toHaveTextContent("RAG chatbot");
     });
 
-    it("lists all five course projects and links the thesis page", () => {
+    it("lists all five projects and links the thesis page", () => {
         render(<DataPage />);
         for (const p of ["Amazon rating prediction", "NLP benchmarking", "Mental health", "Climate Compass", "job market"]) {
             expect(screen.getByText(new RegExp(p, "i"))).toBeInTheDocument();
@@ -81,11 +83,10 @@ describe("/yoga/", () => {
         expect(screen.getByRole("link", { name: "Vidyarasa" })).toHaveAttribute("href", "https://vidyarasa.id/");
     });
 
-    it("shows her practice sequence without naming it, and quotes her reflection", () => {
-        const { container } = render(<YogaPage />);
-        expect(within(screen.getByRole("figure", { name: "A sequence I practice" })).getAllByRole("listitem")).toHaveLength(7);
-        expect(container.textContent).not.toMatch(/Surya Namaskar/i);
-        expect(screen.getByText(/learning matters more than perfection/).closest("blockquote")).not.toBeNull();
+    it("shows the opening flow and points to her ongoing practice", () => {
+        render(<YogaPage />);
+        expect(within(screen.getByRole("figure", { name: "Opening flow of Sun Salutation A" })).getAllByRole("listitem")).toHaveLength(7);
+        expect(screen.getByRole("link", { name: "Follow my practice on Instagram" })).toHaveAttribute("href", "https://www.instagram.com/cin.oddysey_yoga/");
     });
 });
 

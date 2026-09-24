@@ -43,16 +43,10 @@ export default function YogaPage() {
 
             <Section title={page.text.sequence} lede={page.ledes.sequence}>
                 <SequenceStrip title={yoga.column.strip.title} steps={yoga.column.strip.steps} tone="yoga" />
-            </Section>
-
-            <Section title={page.text.words} lede={page.ledes.words}>
-                <blockquote className="max-w-[36rem] border-t-4 border-yoga pt-6 text-2xl leading-snug text-primary md:text-3xl">
-                    <p>{yoga.reflection.text}</p>
-                </blockquote>
                 <a
                     href={instagram.url}
                     rel="me noreferrer"
-                    className="self-start font-display text-sm font-semibold text-brand-secondary underline underline-offset-4 hover:text-brand-700"
+                    className="mt-8 self-start font-display text-sm font-semibold text-brand-secondary underline underline-offset-4 hover:text-brand-700"
                 >
                     {page.text.instagram}
                 </a>

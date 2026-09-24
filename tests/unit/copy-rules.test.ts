@@ -25,7 +25,6 @@ describe("copyProblems", () => {
         "I cut a report from about 2 hours to a few minutes per event.",
         "Sept 2018 – Jul 2019",
         "A/Prof. Derry Wijaya supervises the thesis.",
-        "Learning matters more than perfection.",
         "I optimized 700+ workflow automations.",
         "Advised a local small business on production.",
     ])("passes clean copy: %s", (s) => {

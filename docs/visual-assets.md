@@ -2,7 +2,7 @@
 
 Cindy supplied the portrait on September 24, 2026. `public/cindy-portrait.webp` and `public/cindy-portrait-450.webp` are WebP conversions of that image. The two widths follow the responsive portrait treatment used on the reference site.
 
-The built-in image generation tool made the following supporting assets. Each image keeps to Cindy's burgundy, terracotta, coral, mustard, olive, sand, cream, and espresso palette.
+The supporting assets use Cindy's burgundy, terracotta, coral, mustard, olive, sand, cream, and espresso palette.
 
 | Asset | Prompt and use |
 | --- | --- |

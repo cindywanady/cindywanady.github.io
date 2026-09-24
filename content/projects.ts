@@ -32,7 +32,7 @@ export const projects = {
 
     course: [
         {
-            title: "Amazon rating prediction: stacked SVD and LightGBM recommender",
+            title: "Amazon rating prediction with stacked SVD and LightGBM",
             year: 2026,
             context: "Monash University",
             tools: ["Python", "scikit-learn", "LightGBM"],
@@ -50,7 +50,7 @@ export const projects = {
             ],
         },
         {
-            title: "NLP benchmarking: text classification and topic discovery",
+            title: "NLP benchmarking for text classification and topic discovery",
             year: 2026,
             context: "Monash University",
             tools: ["Python", "Hugging Face Transformers"],

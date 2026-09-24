@@ -37,7 +37,6 @@ body {
     align-items: center;
     min-height: 23rem;
     overflow: hidden;
-    border-bottom: 1px solid var(--color-neutral-200);
 }
 
 .intro-shell-home {
@@ -95,44 +94,38 @@ body {
     min-height: 20rem;
 }
 
-.intro-art-portrait::before {
-    position: absolute;
-    top: 13%;
-    right: 7%;
-    width: 83%;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: var(--color-neutral-100);
-    content: "";
-}
-
 .intro-art-portrait .chakra-field {
     z-index: 1;
-    opacity: 0.68;
+    opacity: 0.8;
 }
 
 .intro-portrait {
     position: absolute;
     z-index: 2;
-    right: 0;
-    bottom: -5rem;
+    right: 12%;
+    bottom: 1rem;
     display: block;
-    height: 112%;
-    width: 100%;
+    width: 76%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 50%;
+    background: var(--color-neutral-50);
+    box-shadow: 0 28px 54px -40px rgb(74 52 40 / 0.45);
 }
 
 .intro-portrait img {
+    position: absolute;
+    bottom: -20%;
     display: block;
     width: 100%;
-    height: 100%;
+    height: 133%;
     object-fit: contain;
     object-position: center bottom;
 }
 
 .intro-shell-inner .intro-portrait {
-    right: 0;
-    bottom: -4.5rem;
-    height: 110%;
+    right: 12%;
+    bottom: 0.4rem;
 }
 
 .intro-scene {
@@ -184,8 +177,7 @@ body {
     flex-direction: column;
     gap: 1.45rem;
     min-width: 0;
-    border-top: 3px solid var(--practice-color);
-    padding-top: 1.7rem;
+    padding-top: 0.2rem;
 }
 
 .practice-panel-data {
@@ -243,11 +235,14 @@ body {
 }
 
 .practice-proof li {
-    border-top: 1px solid var(--color-neutral-200);
-    padding: 1rem 0;
+    padding: 0.55rem 0;
     color: var(--color-neutral-700);
     font-size: 1.05rem;
     line-height: 1.45;
+}
+
+.practice-proof li + li {
+    margin-top: 0.55rem;
 }
 
 .practice-link {
@@ -323,12 +318,13 @@ body {
     }
 
     .intro-portrait {
-        bottom: -2rem;
-        height: 105%;
+        right: 11%;
+        bottom: 0;
+        width: 78%;
     }
 
     .intro-shell-inner .intro-portrait {
-        bottom: -2rem;
+        bottom: 0;
     }
 
     .intro-scene {

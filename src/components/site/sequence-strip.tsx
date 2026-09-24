@@ -17,8 +17,8 @@ type Props = {
  *
  * Server-rendered complete, so every step is readable without JavaScript. In
  * a browser that can observe scrolling, and for a reader who has not asked for
- * reduced motion, a strip that starts below the fold waits there and draws in
- * order on arrival. One already on screen at load is left as it is.
+ * reduced motion, the connecting rule draws when it enters view. The labels
+ * remain visible throughout.
  */
 export function SequenceStrip({ title, steps, tone }: Props) {
     const ref = useRef<HTMLElement>(null);
@@ -66,8 +66,8 @@ export function SequenceStrip({ title, steps, tone }: Props) {
                 {title}
             </figcaption>
             <ol className="strip-steps">
-                {steps.map((step, i) => (
-                    <li key={step.label} className="strip-step" style={{ "--i": i } as CSSProperties}>
+                {steps.map((step) => (
+                    <li key={step.label} className="strip-step">
                         <span data-part="label" className="strip-label">
                             {step.label}
                         </span>

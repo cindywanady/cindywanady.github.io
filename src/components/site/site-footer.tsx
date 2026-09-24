@@ -6,7 +6,7 @@ const ICONS: Record<string, typeof GitHub> = { LinkedIn, Instagram, GitHub };
 /** The three profile links and the year. No email address is published. */
 export function SiteFooter() {
     return (
-        <footer className="mx-auto mt-24 flex w-full max-w-6xl flex-wrap items-center justify-between gap-4 border-t border-secondary px-5 py-8 md:px-8">
+        <footer className="mx-auto mt-24 flex w-full max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-8 md:px-8">
             <p className="font-display text-sm text-tertiary">
                 {site.identity.name}, {new Date().getFullYear()}
             </p>

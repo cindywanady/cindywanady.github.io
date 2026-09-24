@@ -38,7 +38,6 @@ describe("content", () => {
 
     it("refuses an empty required yoga field", () => {
         expect(yogaSchema.safeParse({ ...site.yoga, styles: [] }).success).toBe(false);
-        expect(yogaSchema.safeParse({ ...site.yoga, reflection: { ...site.yoga.reflection, text: "" } }).success).toBe(false);
     });
 
     it("publishes no email address", () => {
