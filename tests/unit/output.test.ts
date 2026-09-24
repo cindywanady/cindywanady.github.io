@@ -10,6 +10,17 @@ const built = existsSync("out/index.html");
 describe.skipIf(!built)("built home page", () => {
     const html = built ? readFileSync("out/index.html", "utf8") : "";
 
+    it("tells a search for her name who she is, in a few words", () => {
+        // Google shows the title as the result's headline, cut off near 60
+        // characters, and the description beneath, cut off near 155.
+        const title = html.match(/<title>([^<]+)<\/title>/)?.[1] ?? "";
+        const description = html.match(/<meta name="description" content="([^"]+)"/)?.[1] ?? "";
+        expect(title).toBe("Cindy Wanady: Data and Yoga");
+        expect(description.startsWith("Data and yoga.")).toBe(true);
+        expect(description.length).toBeLessThanOrEqual(155);
+        expect(html).toContain('<meta property="og:title" content="Cindy Wanady: Data and Yoga"');
+    });
+
     it("renders each half's link with its arrow", () => {
         for (const label of ["See data work", "See yoga practice"]) {
             const end = html.indexOf("</a>", html.indexOf(label));

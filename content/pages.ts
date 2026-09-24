@@ -6,8 +6,8 @@
  */
 export const pages = {
     home: {
-        title: "Cindy Wanady",
-        description: "Cindy Wanady works in data at Mekari and practices Hatha and Vinyasa yoga.",
+        title: "Cindy Wanady: Data and Yoga",
+        description: "Data and yoga. Cindy Wanady works in CRM data and analytics at Mekari and practices Hatha and Vinyasa yoga.",
         text: {
             greeting: "I'm Cindy Wanady.",
         },

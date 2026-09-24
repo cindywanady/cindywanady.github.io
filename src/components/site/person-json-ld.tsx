@@ -8,6 +8,7 @@ export function PersonJsonLd() {
         "@type": "Person",
         name: identity.name,
         url: identity.url,
+        description: site.pages.home.description,
         jobTitle: identity.jobTitle,
         worksFor: { "@type": "Organization", name: identity.worksFor },
         alumniOf: identity.alumniOf.map((name) => ({ "@type": "CollegeOrUniversity", name })),
