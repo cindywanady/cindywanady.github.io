@@ -40,11 +40,11 @@ Both families load from `public/fonts/`, so the static build needs no font downl
 
 `src/components/site/chakra-field.tsx` draws a thin mandala behind Cindy's portrait. Its outer petals turn slowly, and its inner petals expand slightly. Reduced motion freezes both layers. The SVG is decorative and hidden from assistive technology.
 
-The homepage and About page use Cindy's supplied portrait, converted to WebP at two widths. The data and yoga pages use distinct generated editorial images. The About page also uses a generated botanical branch. Every image sits in `public/`, and `docs/visual-assets.md` records its source and prompt.
+The homepage and About page use Cindy's supplied portrait, converted to WebP at two widths. The home practice panels use two generated still lifes, and the five project cards use distinct editorial interpretations of their subjects. The data and yoga pages retain their own editorial images. The About page also uses a generated botanical branch. Every image sits in `public/`, and `docs/visual-assets.md` records its source and prompt.
 
 ## Depth
 
-The two home sections use generous space, clear type, and distinct practice marks. Projects on `/data/` retain soft panels, while the featured thesis uses a full-width image.
+The two home sections use generous space, clear type, distinct practice marks, and matching photographic crops. Projects on `/data/` use individual images inside soft panels, while the featured thesis uses a full-width image. Four code native marks help readers scan the skill groups.
 
 All content stays visible as a page loads. Project panels may lift on hover, and sequence strips may draw when they enter view.
 

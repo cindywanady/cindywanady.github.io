@@ -22,6 +22,15 @@ export function HalfColumn({ column, tone }: { column: Column; tone: "data" | "y
                 <PracticeMark tone={tone} />
                 {column.heading}
             </h2>
+            <img
+                src={tone === "data" ? "/home-data.webp" : "/home-yoga.webp"}
+                alt=""
+                width="1200"
+                height="800"
+                loading="eager"
+                decoding="async"
+                className="practice-image"
+            />
             <p className="practice-line">{column.trueLine.text}</p>
             <ul className="practice-proof">
                 {column.proof.map((claim) => (

@@ -23,7 +23,7 @@ describe("home", () => {
         const [data, yoga] = screen.getAllByRole("region");
         expect(within(data).getByRole("heading", { level: 2 })).toHaveTextContent("Data science");
         expect(within(yoga).getByRole("heading", { level: 2 })).toHaveTextContent("Yoga practice");
-        expect(anatomy(data)).toEqual(["H2", "P", "UL", "A"]);
+        expect(anatomy(data)).toEqual(["H2", "IMG", "P", "UL", "A"]);
         expect(anatomy(yoga)).toEqual(anatomy(data));
     });
 

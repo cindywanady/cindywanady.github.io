@@ -35,6 +35,7 @@ export const projects = {
             title: "Amazon rating prediction with stacked SVD and LightGBM",
             year: 2026,
             context: "Monash University",
+            image: "/project-recommendation.webp",
             tools: ["Python", "scikit-learn", "LightGBM"],
             claims: [
                 {
@@ -53,6 +54,7 @@ export const projects = {
             title: "NLP benchmarking for text classification and topic discovery",
             year: 2026,
             context: "Monash University",
+            image: "/project-nlp.webp",
             tools: ["Python", "Hugging Face Transformers"],
             claims: [
                 {
@@ -71,6 +73,7 @@ export const projects = {
             title: "Mental health treatment-seeking in tech",
             year: 2025,
             context: "Monash University",
+            image: "/project-mental-health.webp",
             tools: ["R"],
             claims: [
                 {
@@ -89,6 +92,7 @@ export const projects = {
             title: "Indonesia Climate Compass dashboard",
             year: 2025,
             context: "Monash University",
+            image: "/project-climate.webp",
             tools: ["R Shiny"],
             link: { label: "Open the dashboard", url: "https://anantatw.shinyapps.io/Indonesia-climate-change/" },
             claims: [
@@ -103,6 +107,7 @@ export const projects = {
             title: "Data science job market trends",
             year: 2025,
             context: "Monash University",
+            image: "/project-job-market.webp",
             tools: ["Python"],
             claims: [
                 {

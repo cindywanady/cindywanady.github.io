@@ -64,6 +64,10 @@ export const projectSchema = z.object({
     title: text,
     year: z.number().int(),
     context: text,
+    image: z
+        .string()
+        .regex(/^\/[a-z0-9-]+\.webp$/)
+        .optional(),
     tools: z.array(text).min(1),
     claims: z.array(claimSchema).min(1),
     link: linkSchema.optional(),

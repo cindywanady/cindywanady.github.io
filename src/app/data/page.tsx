@@ -5,6 +5,7 @@ import { ProjectEntry } from "@/components/site/project-entry";
 import { RoleEntry } from "@/components/site/role-entry";
 import { Section } from "@/components/site/section";
 import { SequenceStrip } from "@/components/site/sequence-strip";
+import { SkillMark } from "@/components/site/skill-mark";
 
 const page = site.pages.data;
 
@@ -57,7 +58,10 @@ export default function DataPage() {
                 <dl className="grid gap-6 md:grid-cols-2">
                     {data.skills.map((s) => (
                         <div key={s.group} className="flex flex-col gap-1.5">
-                            <dt className="font-display text-sm font-semibold text-primary">{s.group}</dt>
+                            <dt className="flex items-center gap-3 font-display text-sm font-semibold text-primary">
+                                <SkillMark group={s.group} />
+                                {s.group}
+                            </dt>
                             <dd className="leading-relaxed text-secondary">{s.items}</dd>
                         </div>
                     ))}

@@ -16,7 +16,17 @@ export function ProjectEntry({ project, featured = false, children }: { project:
                 featured ? "p-8 md:p-10" : "p-6",
             )}
         >
-            {featured && <img src="/thesis-research.webp" alt="" width="1536" height="1024" className="featured-project-image" />}
+            {(featured || project.image) && (
+                <img
+                    src={featured ? "/thesis-research.webp" : project.image}
+                    alt=""
+                    width={featured ? 1536 : 1200}
+                    height={featured ? 1024 : 800}
+                    loading="lazy"
+                    decoding="async"
+                    className={featured ? "featured-project-image" : "project-image"}
+                />
+            )}
             <h3 className={cx("font-display font-semibold text-primary", featured ? "text-2xl" : "text-lg")}>{project.title}</h3>
             {featured && (
                 <p className="font-display text-sm text-tertiary">
