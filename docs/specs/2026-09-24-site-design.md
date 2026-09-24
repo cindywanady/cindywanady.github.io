@@ -95,7 +95,7 @@ upstream package to stay in sync with.
 | `/` | Her name, one plain sentence naming both practices, the two equal columns |
 | `/data/` | Current work at Mekari with the migration sequence strip, the thesis as the featured item, five course projects, earlier roles, skills |
 | `/data/thesis/` | The RAG chatbot: what it is grounded in, the three-arm blind evaluation, supervision |
-| `/yoga/` | Her trainings (YTT 100-hour completed, YTT 200-hour in progress), style, three years of practice, the practice sequence, what practice changed in how she works |
+| `/yoga/` | Her trainings (YTT 100-hour completed, YTT 200-hour in progress), Hatha yoga, three years of practice, the practice sequence, what practice changed in how she works |
 | `/about/` | Education (Monash, Prasetiya Mulya, the Tsinghua exchange), languages, where the two practices meet |
 | `/contact/` | Email, LinkedIn, GitHub |
 | 404 | A short message and links to both halves |
@@ -325,6 +325,10 @@ project is scaffolded:
 | Years practicing | 3 |
 | Completed training | YTT 100-hour |
 | Training in progress | YTT 200-hour |
+| Style | Hatha yoga |
+
+The site names no training school. Trainings carry no school field, so none
+can be added by accident.
 
 Trainings are a list, each with a `status` of `completed` or `in_progress`,
 so the 200-hour course moves to `completed` by changing one field. The site
@@ -338,8 +342,6 @@ non-empty:
 
 | Field | Module |
 |---|---|
-| School or teacher for each training, and the year the 100-hour was completed | `yoga.ts` |
-| Style or styles practiced | `yoga.ts` |
 | A practice sequence she uses, 3 to 8 ordered steps | `yoga.ts` |
 | One sentence on what practice changed in how she works | `yoga.ts` |
 | Email address | `identity.ts` |
