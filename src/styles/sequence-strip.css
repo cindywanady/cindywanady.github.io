@@ -11,6 +11,9 @@
     --strip-color: var(--color-data);
     --marker: 1.75rem;
     margin: 0;
+    /* The layout follows the strip's own width, not the viewport's: a strip in
+       a half-width column is as narrow as one on a phone. */
+    container: strip / inline-size;
 }
 
 .strip[data-tone="yoga"] {
@@ -89,8 +92,12 @@
     color: var(--color-text-tertiary);
 }
 
-/* Narrow screens: the strip turns vertical and the rule runs down the markers. */
-@media (max-width: 40rem) {
+/*
+ * Narrow containers: the strip turns vertical and the rule runs down the
+ * markers. At 36rem a seven-step strip leaves under 5rem a step, which is where
+ * two-word labels and Sanskrit names start to collide.
+ */
+@container strip (max-width: 36rem) {
     .strip-steps {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -150,12 +157,14 @@
     }
 }
 
-@media (prefers-reduced-motion: no-preference) and (max-width: 40rem) {
-    .strip[data-state="waiting"] .strip-steps::before {
-        transform: scaleY(0);
-    }
+@container strip (max-width: 36rem) {
+    @media (prefers-reduced-motion: no-preference) {
+        .strip[data-state="waiting"] .strip-steps::before {
+            transform: scaleY(0);
+        }
 
-    .strip[data-state="drawn"] .strip-steps::before {
-        transform: scaleY(1);
+        .strip[data-state="drawn"] .strip-steps::before {
+            transform: scaleY(1);
+        }
     }
 }

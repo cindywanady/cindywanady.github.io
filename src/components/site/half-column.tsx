@@ -1,7 +1,6 @@
 import type { Column } from "@content/schema";
 import { ArrowRight } from "@untitledui/icons";
 import { useId } from "react";
-import { Button } from "@/components/base/buttons/button";
 import { cx } from "@/utils/cx";
 import { SequenceStrip } from "./sequence-strip";
 
@@ -9,8 +8,11 @@ import { SequenceStrip } from "./sequence-strip";
  * One practice on the home page. Data and yoga render through this same
  * component so the two halves cannot drift apart in shape.
  *
- * Button is a client component, so its icon goes in as a rendered element: a
- * component passed as a prop cannot cross the server-to-client boundary.
+ * The link is a plain server-rendered anchor on purpose. Routed through
+ * Untitled UI's client Button, the second of two identical arrow icons came
+ * out of the static build missing: React stores a repeated element once and
+ * refers to it after that, and the Button's element check does not recognize
+ * the reference. tests/unit/output.test.ts checks the built HTML for it.
  */
 export function HalfColumn({ column, tone }: { column: Column; tone: "data" | "yoga" }) {
     const headingId = useId();
@@ -28,9 +30,13 @@ export function HalfColumn({ column, tone }: { column: Column; tone: "data" | "y
                     </li>
                 ))}
             </ul>
-            <Button href={column.href} color="link-color" size="lg" iconTrailing={<ArrowRight data-icon aria-hidden="true" />} className="self-start">
+            <a
+                href={column.href}
+                className="group inline-flex items-center gap-1.5 self-start font-display text-base font-semibold text-brand-secondary underline decoration-transparent underline-offset-4 transition-colors hover:text-brand-700 hover:decoration-current"
+            >
                 {column.cta}
-            </Button>
+                <ArrowRight aria-hidden="true" className="size-5 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
+            </a>
         </section>
     );
 }

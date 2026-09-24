@@ -68,7 +68,11 @@ describe("content", () => {
 
     it("takes every degree and skill line verbatim from the CV", () => {
         const cv = normalize(readSource("cv"));
-        const fields = [...site.education.flatMap((e) => [e.award, e.institution, e.dates]), ...site.data.skills.map((s) => `${s.group}: ${s.items}`)];
+        const fields = [
+            ...site.education.flatMap((e) => [e.award, e.institution, e.dates]),
+            ...site.data.skills.map((s) => `${s.group}: ${s.items}`),
+            ...site.identity.languages.map((l) => `${l.name} (${l.level})`),
+        ];
         expect(fields.filter((f) => !cv.includes(normalize(f)))).toEqual([]);
     });
 
