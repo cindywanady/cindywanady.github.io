@@ -21,7 +21,8 @@ const body = Source_Serif_4({
 });
 
 export const metadata: Metadata = {
-    title: "Cindy Wanady",
+    metadataBase: new URL("https://cindywanady.github.io"),
+    title: { default: "Cindy Wanady", template: "%s, Cindy Wanady" },
 };
 
 export const viewport: Viewport = {

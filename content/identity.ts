@@ -32,4 +32,8 @@ export const identity = {
         "Vinyasa yoga",
     ],
     knowsLanguage: ["Indonesian", "English"],
+    languages: [
+        { name: "Bahasa Indonesia", level: "Native" },
+        { name: "English", level: "Professional working proficiency" },
+    ],
 };

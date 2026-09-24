@@ -44,6 +44,7 @@ export const identitySchema = z.object({
     profiles: z.array(linkSchema).length(3),
     knowsAbout: z.array(text).min(1),
     knowsLanguage: z.array(text).min(1),
+    languages: z.array(z.object({ name: text, level: text })).min(1),
 });
 
 export const roleSchema = z.object({
@@ -108,7 +109,7 @@ export const educationSchema = z.array(
 
 export const navigationSchema = z.array(z.object({ label: text, href: text, owns: z.array(text) })).length(4);
 
-const pageMeta = z.object({ title: text, description: text });
+const pageMeta = z.object({ title: text, description: text, text: z.record(z.string(), text) });
 export const pagesSchema = z.object({
     home: pageMeta,
     data: pageMeta,
