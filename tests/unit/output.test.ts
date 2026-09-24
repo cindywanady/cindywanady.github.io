@@ -1,5 +1,5 @@
-import { existsSync, readFileSync } from "node:fs";
 import { site } from "@content";
+import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
 // Checks over the built site in out/. These catch what component tests cannot,

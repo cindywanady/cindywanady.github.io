@@ -12,10 +12,10 @@ on:
     pull_request:
     workflow_dispatch:
 
+# Read-only by default. Only the deploy job, which runs no installed code,
+# can publish.
 permissions:
     contents: read
-    pages: write
-    id-token: write
 
 concurrency:
     group: pages-${{ github.ref }}
@@ -38,7 +38,7 @@ jobs:
             - run: npx playwright install --with-deps chromium
             - run: npm run e2e
             - uses: actions/upload-pages-artifact@v5
-              if: github.event_name != 'pull_request'
+              if: github.ref == 'refs/heads/main'
               with:
                   path: out
 
@@ -65,9 +65,12 @@ jobs:
               if: env.TYPESAFE_API_KEY == ''
 
     deploy:
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/main'
         needs: [check, claims]
         runs-on: ubuntu-latest
+        permissions:
+            pages: write
+            id-token: write
         environment:
             name: github-pages
             url: ${{ steps.deployment.outputs.page_url }}
