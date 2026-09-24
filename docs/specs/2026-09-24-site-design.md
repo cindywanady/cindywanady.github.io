@@ -11,7 +11,8 @@ Cindy Wanady works in two practices and the site gives them equal weight.
   reporting, four of them at Mekari. A Master of Data Science at Monash
   University, expected September 2026, with a thesis building a
   retrieval-augmented chatbot for depression care in Indonesian primary care.
-- **Yoga.** A certified yoga practitioner who does not currently teach.
+- **Yoga.** Three years of practice. She holds a 100-hour yoga teacher training
+  (YTT) certificate and is partway through a 200-hour YTT. She does not teach.
 
 Readers arrive for one practice or the other. A recruiter looking for her
 Mekari work should reach it in one click without passing through yoga, and a
@@ -94,7 +95,7 @@ upstream package to stay in sync with.
 | `/` | Her name, one plain sentence naming both practices, the two equal columns |
 | `/data/` | Current work at Mekari with the migration sequence strip, the thesis as the featured item, five course projects, earlier roles, skills |
 | `/data/thesis/` | The RAG chatbot: what it is grounded in, the three-arm blind evaluation, supervision |
-| `/yoga/` | Certification, style, years of practice, the practice sequence, what practice changed in how she works |
+| `/yoga/` | Her trainings (YTT 100-hour completed, YTT 200-hour in progress), style, three years of practice, the practice sequence, what practice changed in how she works |
 | `/about/` | Education (Monash, Prasetiya Mulya, the Tsinghua exchange), languages, where the two practices meet |
 | `/contact/` | Email, LinkedIn, GitHub |
 | 404 | A short message and links to both halves |
@@ -314,17 +315,31 @@ Each module exports a zod schema and the data it validates. `content/index.ts`
 parses every module at import time, so an invalid module fails `next build`
 with the zod error naming the field.
 
-### 5.3 Facts Cindy must supply
+### 5.3 Yoga and contact facts
 
-These are required by schema. The build fails until each is present and
-non-empty.
+**Confirmed on 2026-09-24**, and written into `sources/yoga.md` when the
+project is scaffolded:
+
+| Fact | Value |
+|---|---|
+| Years practicing | 3 |
+| Completed training | YTT 100-hour |
+| Training in progress | YTT 200-hour |
+
+Trainings are a list, each with a `status` of `completed` or `in_progress`,
+so the 200-hour course moves to `completed` by changing one field. The site
+says "in progress" for an unfinished training and never implies she holds it.
+The 3-year figure is stated as of the date recorded beside it in
+`sources/yoga.md`, so it cannot silently go stale: a test fails once that date
+is more than twelve months old.
+
+**Still required from Cindy.** The build fails until each is present and
+non-empty:
 
 | Field | Module |
 |---|---|
-| Certification name and level | `yoga.ts` |
-| Training school and year certified | `yoga.ts` |
+| School or teacher for each training, and the year the 100-hour was completed | `yoga.ts` |
 | Style or styles practiced | `yoga.ts` |
-| Years practising | `yoga.ts` |
 | A practice sequence she uses, 3 to 8 ordered steps | `yoga.ts` |
 | One sentence on what practice changed in how she works | `yoga.ts` |
 | Email address | `identity.ts` |
@@ -386,7 +401,7 @@ its code. Every check below exists as a test.
 
 | Check | Tool | Fails when |
 |---|---|---|
-| Content schemas | Vitest, zod | A required field is missing or empty; a date is malformed; a URL is invalid |
+| Content schemas | Vitest, zod | A required field is missing or empty; a date is malformed; a URL is invalid; the years-practicing figure is more than twelve months past its recorded date |
 | Evidence integrity | Vitest | A claim's `quote` is not a verbatim span of its source file; a number in `text` is absent from `quote` |
 | Palette contrast | Vitest | A text and background token pair used in `src/` measures under 4.5:1, or a UI edge pair under 3:1; coral, mustard or sand is applied as a text color |
 | Writing rules | Vitest over `content/` | An em dash, a banned phrase or word, or a sentence over 20 words appears |
