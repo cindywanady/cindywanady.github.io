@@ -3,14 +3,14 @@ export const projects = {
     thesis: {
         title: "RAG chatbot for depression management in Indonesian primary care",
         year: 2026,
-        context: "Master's thesis, in progress, Monash University Indonesia",
+        context: "Master's thesis, completed, Monash University Indonesia",
         tools: ["Python", "LLM", "RAG"],
         supervisor: { label: "A/Prof. Derry Wijaya", url: "https://research.monash.edu/en/persons/derry-wijaya/" },
         claims: [
             {
                 text: "The chatbot answers from Indonesia's Ministry of Health primary-care depression guideline.",
                 source: "cv",
-                quote: "Building a retrieval-augmented chatbot grounded in Indonesia's Ministry of Health primary-care depression guideline",
+                quote: "Built a retrieval-augmented chatbot grounded in Indonesia's Ministry of Health primary-care depression guideline",
             },
             {
                 text: "Every answer stays traceable to a source clinicians already accept.",

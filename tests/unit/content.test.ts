@@ -62,15 +62,14 @@ describe("content", () => {
 
     it("takes every role's organization, title and dates verbatim from the CV", () => {
         const cv = normalize(readSource("cv"));
-        for (const role of [site.data.current, ...site.data.earlier, ...site.data.formative]) {
-            for (const field of [role.title, role.organization, role.dates]) expect(cv, field).toContain(normalize(field));
-        }
+        const fields = [site.data.current, ...site.data.earlier, ...site.data.formative].flatMap((r) => [r.title, r.organization, r.dates]);
+        expect(fields.filter((f) => !cv.includes(normalize(f)))).toEqual([]);
     });
 
     it("takes every degree and skill line verbatim from the CV", () => {
         const cv = normalize(readSource("cv"));
-        for (const e of site.education) for (const f of [e.award, e.institution, e.dates]) expect(cv, f).toContain(normalize(f));
-        for (const s of site.data.skills) expect(cv, s.items).toContain(normalize(`${s.group}: ${s.items}`));
+        const fields = [...site.education.flatMap((e) => [e.award, e.institution, e.dates]), ...site.data.skills.map((s) => `${s.group}: ${s.items}`)];
+        expect(fields.filter((f) => !cv.includes(normalize(f)))).toEqual([]);
     });
 
     it("has four nav items", () => {

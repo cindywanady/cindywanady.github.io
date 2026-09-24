@@ -8,9 +8,10 @@ written spec before an implementation plan is written.
 Cindy Wanady works in two practices and the site gives them equal weight.
 
 - **Data.** Six years across CRM automation, data migration and operational
-  reporting, four of them at Mekari. A Master of Data Science with Distinction at
-  Monash University, expected September 2026, with a thesis building a
-  retrieval-augmented chatbot for depression care in Indonesian primary care.
+  reporting, four of them at Mekari. A Master of Data Science with Distinction from
+  Monash University, completed September 2026 with a WAM of 80.25, a High
+  Distinction average. Her thesis built a retrieval-augmented chatbot for
+  depression care in Indonesian primary care.
 - **Yoga.** Three years of practice. She holds a 100-hour yoga teacher training
   (YTT) certificate and is partway through a 200-hour YTT. She does not teach.
 

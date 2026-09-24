@@ -34,9 +34,9 @@ export const data = {
                 quote: "Led CRM platform migrations covering est. 50,000 records across 5 modules",
             },
             {
-                text: "My master's thesis builds a RAG chatbot, rated blind by licensed psychologists.",
+                text: "My master's thesis built a RAG chatbot, rated blind by licensed psychologists.",
                 source: "cv",
-                quote: "Master's thesis builds a retrieval-augmented chatbot (RAG and LLM) supervised by A/Prof. Derry Wijaya (https://research.monash.edu/en/persons/derry-wijaya/), grounded in Indonesia's Ministry of Health depression guideline and evaluated through a blind three-arm comparison rated by licensed psychologists",
+                quote: "Master's thesis built a retrieval-augmented chatbot (RAG and LLM) supervised by A/Prof. Derry Wijaya (https://research.monash.edu/en/persons/derry-wijaya/), grounded in Indonesia's Ministry of Health depression guideline and evaluated through a blind three-arm comparison rated by licensed psychologists",
             },
         ],
         href: "/data/",

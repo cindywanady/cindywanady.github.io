@@ -3,12 +3,12 @@ export const education = [
     {
         award: "Master of Data Science",
         institution: "Monash University",
-        dates: "Sept 2024 – Sept 2026, expected",
+        dates: "Sept 2024 – Sept 2026",
         claims: [
             {
-                text: "With Distinction: GPA 3.563 / 4.00, WAM 80.25.",
+                text: "Awarded with Distinction. GPA 3.563 / 4.00, WAM 80.25, a High Distinction average.",
                 source: "cv",
-                quote: "GPA 3.563 / 4.00, WAM 80.25. Master of Data Science with Distinction.",
+                quote: "GPA 3.563 / 4.00, WAM 80.25, a High Distinction average. Master of Data Science with Distinction.",
             },
             {
                 text: "Monash Indonesia Welcome Scholarship recipient.",
@@ -16,9 +16,9 @@ export const education = [
                 quote: "Monash Indonesia Welcome Scholarship recipient.",
             },
             {
-                text: "I am completing it while working full time.",
+                text: "I completed it while working full time.",
                 source: "cv",
-                quote: "expected Sept 2026, while working full time",
+                quote: "Sept 2026, while working full time",
             },
         ],
     },
