@@ -6,9 +6,12 @@ LaTeX lines, which marked details not yet confirmed, were dropped. Edit this
 file when the CV changes, then run `npm test` to find claims it no longer
 supports.
 
+Corrected on 2026-09-24: the Monash result is GPA 3.563 and WAM 80.25, awarded
+with Distinction. The LaTeX CV said GPA 3.67, WAM ~80 and High Distinction.
+
 ## Summary
 
-Data professional with 6 years across CRM automation, data migration, and operational reporting, including 4 years owning workflow automation and reporting for a B2B SaaS company. Completing an MSc in Data Science at Monash University with High Distinction (GPA 3.67 / 4.0), expected Sept 2026, while working full time. Cut a recurring stakeholder report from about 2 hours to a few minutes per event, and led CRM migrations where data integrity was the acceptance criterion. Master's thesis builds a retrieval-augmented chatbot (RAG and LLM) supervised by A/Prof. Derry Wijaya (https://research.monash.edu/en/persons/derry-wijaya/), grounded in Indonesia's Ministry of Health depression guideline and evaluated through a blind three-arm comparison rated by licensed psychologists rather than automated metrics alone. Works both sides of the pipeline, CRM systems that generate data and the models built on top of them.
+Data professional with 6 years across CRM automation, data migration, and operational reporting, including 4 years owning workflow automation and reporting for a B2B SaaS company. Completing an MSc in Data Science at Monash University with Distinction (GPA 3.563 / 4.0, WAM 80.25), expected Sept 2026, while working full time. Cut a recurring stakeholder report from about 2 hours to a few minutes per event, and led CRM migrations where data integrity was the acceptance criterion. Master's thesis builds a retrieval-augmented chatbot (RAG and LLM) supervised by A/Prof. Derry Wijaya (https://research.monash.edu/en/persons/derry-wijaya/), grounded in Indonesia's Ministry of Health depression guideline and evaluated through a blind three-arm comparison rated by licensed psychologists rather than automated metrics alone. Works both sides of the pipeline, CRM systems that generate data and the models built on top of them.
 
 ## Experience
 
@@ -43,7 +46,7 @@ Data professional with 6 years across CRM automation, data migration, and operat
 
 ## Education
 
-- Master of Data Science, Monash University (Sept 2024 – Sept 2026, expected). GPA 3.67 / 4.00, WAM ~80 (High Distinction). Monash Indonesia Welcome Scholarship recipient.
+- Master of Data Science, Monash University (Sept 2024 – Sept 2026, expected). GPA 3.563 / 4.00, WAM 80.25. Master of Data Science with Distinction. Monash Indonesia Welcome Scholarship recipient.
 - Bachelor of Finance and Banking, Prasetiya Mulya University, School of Business and Economics (Sept 2015 – Dec 2019). GPA 3.74 / 4.00, Cum Laude. Achievement Scholarship, 2018/2019.
 - Exchange Student, Tsinghua University, School of Economics and Management, China (Sept 2017 – Jan 2018).
 

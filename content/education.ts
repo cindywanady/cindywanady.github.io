@@ -6,9 +6,9 @@ export const education = [
         dates: "Sept 2024 – Sept 2026, expected",
         claims: [
             {
-                text: "GPA 3.67 / 4.00, WAM about 80, High Distinction.",
+                text: "With Distinction: GPA 3.563 / 4.00, WAM 80.25.",
                 source: "cv",
-                quote: "GPA 3.67 / 4.00, WAM ~80 (High Distinction)",
+                quote: "GPA 3.563 / 4.00, WAM 80.25. Master of Data Science with Distinction.",
             },
             {
                 text: "Monash Indonesia Welcome Scholarship recipient.",
