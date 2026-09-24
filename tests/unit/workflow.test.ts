@@ -26,4 +26,15 @@ describe("deploy workflow", () => {
         // A manual run from a feature branch must not publish that branch.
         expect(section("deploy")).toMatch(/if: github\.ref == 'refs\/heads\/main'/);
     });
+
+    it("deploys after GitHub's legacy Pages build of the same commit, while the legacy source is on", () => {
+        // Pages keeps whichever deployment was created last. With the legacy
+        // branch source still on, GitHub's Jekyll build of each push races ours
+        // and can publish the raw repository over the site.
+        const deploy = section("deploy");
+        const wait = deploy.indexOf("pages/builds/latest");
+        expect(wait).toBeGreaterThan(-1);
+        expect(wait).toBeLessThan(deploy.indexOf("actions/deploy-pages"));
+        expect(deploy).toMatch(/build_type/);
+    });
 });

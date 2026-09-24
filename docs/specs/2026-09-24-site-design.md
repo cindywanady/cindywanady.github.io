@@ -361,9 +361,7 @@ beneath it.
 Trainings are a list, each with a `status` of `completed` or `in_progress`,
 so the 200-hour course moves to `completed` by changing one field. The site
 says "in progress" for an unfinished training and never implies she holds it.
-The 3-year figure is stated as of the date recorded beside it in
-`sources/yoga.md`, so it cannot silently go stale: a test fails once that date
-is more than twelve months old.
+The practice is stated as "since 2022", a fixed year, so it never goes stale.
 
 The schema still requires every field above, so removing one fails the
 build. Each yoga fact also appears in `sources/yoga.md` so its claim has a

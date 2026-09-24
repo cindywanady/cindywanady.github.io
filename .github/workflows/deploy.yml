@@ -75,5 +75,23 @@ jobs:
             name: github-pages
             url: ${{ steps.deployment.outputs.page_url }}
         steps:
+            # While Settings > Pages > Source is still the legacy branch build,
+            # GitHub also builds every push with Jekyll, and Pages keeps
+            # whichever deployment was created last. Waiting for that build of
+            # this commit makes ours the last. Skipped once the source is
+            # "GitHub Actions", when there is no legacy build to wait for.
+            - name: Wait for the legacy Pages build of this commit
+              env:
+                  GH_TOKEN: ${{ github.token }}
+                  REPO: ${{ github.repository }}
+                  SHA: ${{ github.sha }}
+              run: |
+                  if [ "$(gh api "repos/$REPO/pages" --jq .build_type)" = "workflow" ]; then exit 0; fi
+                  for _ in $(seq 1 40); do
+                      build=$(gh api "repos/$REPO/pages/builds/latest" --jq '"\(.status) \(.commit)"' || echo "unknown none")
+                      if [ "${build#* }" = "$SHA" ] && { [ "${build% *}" = built ] || [ "${build% *}" = errored ]; }; then exit 0; fi
+                      sleep 15
+                  done
+                  echo "::warning title=Legacy build not seen::Deploying without seeing GitHub's legacy Pages build of this commit. It may publish over the site. Set Settings > Pages > Source to GitHub Actions."
             - id: deployment
               uses: actions/deploy-pages@v5
