@@ -26,12 +26,7 @@ const EMOJI = /\p{Extended_Pictographic}️?/gu;
 
 /** Collapse whitespace, straighten curly quotes, drop emoji. */
 export function normalize(s: string): string {
-    return s
-        .replace(EMOJI, "")
-        .replace(/[‘’]/g, "'")
-        .replace(/[“”]/g, '"')
-        .replace(/\s+/g, " ")
-        .trim();
+    return s.replace(EMOJI, "").replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, " ").trim();
 }
 
 /** Every number as a reader would say it: "50,000" is 50000, "29%" is 29. */

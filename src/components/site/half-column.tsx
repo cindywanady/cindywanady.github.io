@@ -1,6 +1,6 @@
+import { useId } from "react";
 import type { Column } from "@content/schema";
 import { ArrowRight } from "@untitledui/icons";
-import { useId } from "react";
 import { cx } from "@/utils/cx";
 import { SequenceStrip } from "./sequence-strip";
 

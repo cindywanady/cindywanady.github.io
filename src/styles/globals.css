@@ -4,7 +4,6 @@
 @import "./sequence-strip.css";
 
 @plugin "@tailwindcss/typography";
-@plugin "tailwindcss-react-aria-components";
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:where(.dark-mode, .dark-mode *));

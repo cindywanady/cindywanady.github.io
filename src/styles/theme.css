@@ -124,34 +124,34 @@
     /* Warm neutral scale. Untitled UI's semantic tokens read --color-neutral-*,
        which the starter left to Tailwind's cool default. Values come from
        src/design/palette.ts. */
-    --color-neutral-50: #F7F1E7;
-    --color-neutral-100: #EEE1D0;
-    --color-neutral-200: #D9C2A3;
-    --color-neutral-300: #BBA88E;
-    --color-neutral-400: #9D846D;
+    --color-neutral-50: #f7f1e7;
+    --color-neutral-100: #eee1d0;
+    --color-neutral-200: #d9c2a3;
+    --color-neutral-300: #bba88e;
+    --color-neutral-400: #9d846d;
     --color-neutral-500: #806556;
-    --color-neutral-600: #684F42;
-    --color-neutral-700: #5A4134;
-    --color-neutral-800: #4A3428;
+    --color-neutral-600: #684f42;
+    --color-neutral-700: #5a4134;
+    --color-neutral-800: #4a3428;
     --color-neutral-900: #342117;
-    --color-neutral-950: #1F1007;
+    --color-neutral-950: #1f1007;
 
     /* One job each. See docs/design-system.md. */
-    --color-data: #C96A4A;
-    --color-yoga: #6F7A3A;
-    --color-feature: #C89B2B;
-    --color-ornament: #F28C7C;
+    --color-data: #c96a4a;
+    --color-yoga: #6f7a3a;
+    --color-feature: #c89b2b;
+    --color-ornament: #f28c7c;
 
     /* Brand scale, anchored at 700 on the client's burgundy. */
-    --color-brand-50: #FFF3F5;
-    --color-brand-100: #FEE6E9;
-    --color-brand-200: #F8CFD4;
-    --color-brand-300: #EBAEB6;
-    --color-brand-400: #D78793;
-    --color-brand-500: #BE6373;
-    --color-brand-600: #A0485A;
-    --color-brand-700: #7A263A;
-    --color-brand-800: #691E30;
+    --color-brand-50: #fff3f5;
+    --color-brand-100: #fee6e9;
+    --color-brand-200: #f8cfd4;
+    --color-brand-300: #ebaeb6;
+    --color-brand-400: #d78793;
+    --color-brand-500: #be6373;
+    --color-brand-600: #a0485a;
+    --color-brand-700: #7a263a;
+    --color-brand-800: #691e30;
     --color-brand-900: #521323;
     --color-brand-950: #350512;
 

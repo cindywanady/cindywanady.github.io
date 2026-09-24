@@ -4,16 +4,7 @@ import { identity } from "./identity";
 import { navigation } from "./navigation";
 import { pages } from "./pages";
 import { projects } from "./projects";
-import {
-    type Claim,
-    dataSchema,
-    educationSchema,
-    identitySchema,
-    navigationSchema,
-    pagesSchema,
-    projectsSchema,
-    yogaSchema,
-} from "./schema";
+import { type Claim, dataSchema, educationSchema, identitySchema, navigationSchema, pagesSchema, projectsSchema, yogaSchema } from "./schema";
 import { yoga } from "./yoga";
 
 /**

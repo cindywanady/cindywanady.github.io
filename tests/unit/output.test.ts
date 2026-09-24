@@ -42,7 +42,10 @@ describe.skipIf(!built)("built site", () => {
         for (const route of ROUTES) {
             const html = readFileSync(fileFor(route), "utf8");
             const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => JSON.parse(m[1]));
-            expect(blocks.filter((b) => b["@type"] === "Person"), route).toHaveLength(1);
+            expect(
+                blocks.filter((b) => b["@type"] === "Person"),
+                route,
+            ).toHaveLength(1);
         }
     });
 

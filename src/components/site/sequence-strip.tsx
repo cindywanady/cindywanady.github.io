@@ -52,7 +52,9 @@ export function SequenceStrip({ title, steps, tone }: Props) {
             data-state={state === "static" ? undefined : state}
             style={{ "--steps": steps.length } as CSSProperties}
         >
-            <figcaption id={titleId} className="strip-title">{title}</figcaption>
+            <figcaption id={titleId} className="strip-title">
+                {title}
+            </figcaption>
             <ol className="strip-steps">
                 {steps.map((step, i) => (
                     <li key={step.label} className="strip-step" style={{ "--i": i } as CSSProperties}>

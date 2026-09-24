@@ -1,6 +1,6 @@
-import { describe, expect, it } from "vitest";
 import { allClaims, site } from "@content";
 import { yogaSchema } from "@content/schema";
+import { describe, expect, it } from "vitest";
 import { checkEvidence, normalize, readSource } from "@/lib/claims";
 
 describe("content", () => {

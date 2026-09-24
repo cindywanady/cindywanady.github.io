@@ -6,21 +6,12 @@ export type CopyProblem = { text: string; rule: string };
 
 const MAX_WORDS = 20;
 
-const SALES_WORDS = [
-    "passionate",
-    "driven",
-    "results-oriented",
-    "leverage",
-    "synergy",
-    "seamless",
-    "cutting-edge",
-    "dynamic",
-    "innovative",
-];
+const SALES_WORDS = ["passionate", "driven", "results-oriented", "leverage", "synergy", "seamless", "cutting-edge", "dynamic", "innovative"];
 
 // American spelling, matching the CV. Listed forms, not a suffix rule, because
 // "-ise" also ends plenty of correct American words (advise, expertise).
-const BRITISH = /\b(colours?|behaviours?|organis(e|ed|es|ing|ation|ations)|optimis(e|ed|es|ing|ation)|analys(e|ed|es|ing)|practis(e|ed|es|ing)|recognis(e|ed|es|ing)|realis(e|ed|es|ing)|centres?|modelling|travelling|licence)\b/i;
+const BRITISH =
+    /\b(colours?|behaviours?|organis(e|ed|es|ing|ation|ations)|optimis(e|ed|es|ing|ation)|analys(e|ed|es|ing)|practis(e|ed|es|ing)|recognis(e|ed|es|ing)|realis(e|ed|es|ing)|centres?|modelling|travelling|licence)\b/i;
 
 // Abbreviations whose period does not end a sentence.
 const ABBREVIATIONS = /\b(A\/Prof|Prof|Dr|est|e\.g|i\.e)\./g;

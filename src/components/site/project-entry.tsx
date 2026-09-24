@@ -1,5 +1,5 @@
-import type { Project } from "@content/schema";
 import type { ReactNode } from "react";
+import type { Project } from "@content/schema";
 import { Badge } from "@/components/base/badges/badges";
 import { cx } from "@/utils/cx";
 
@@ -31,7 +31,10 @@ export function ProjectEntry({ project, featured = false, children }: { project:
                 ))}
             </ul>
             {project.link && (
-                <a href={project.link.url} className="self-start font-display text-sm font-semibold text-brand-secondary underline underline-offset-4 hover:text-brand-700">
+                <a
+                    href={project.link.url}
+                    className="self-start font-display text-sm font-semibold text-brand-secondary underline underline-offset-4 hover:text-brand-700"
+                >
                     {project.link.label}
                 </a>
             )}

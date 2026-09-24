@@ -1,6 +1,6 @@
+import type { ReactNode } from "react";
 import { site } from "@content";
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
 import { PageIntro } from "@/components/site/page-intro";
 import { ProjectEntry } from "@/components/site/project-entry";
 import { RoleEntry } from "@/components/site/role-entry";
@@ -35,7 +35,10 @@ export default function DataPage() {
 
             <Section title={page.text.thesis}>
                 <ProjectEntry project={projects.thesis} featured>
-                    <a href="/data/thesis/" className="self-start font-display text-sm font-semibold text-brand-secondary underline underline-offset-4 hover:text-brand-700">
+                    <a
+                        href="/data/thesis/"
+                        className="self-start font-display text-sm font-semibold text-brand-secondary underline underline-offset-4 hover:text-brand-700"
+                    >
                         {page.text.thesisLink}
                     </a>
                 </ProjectEntry>

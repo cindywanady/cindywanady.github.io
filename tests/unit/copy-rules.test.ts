@@ -1,5 +1,5 @@
-import { describe, expect, it } from "vitest";
 import { site } from "@content";
+import { describe, expect, it } from "vitest";
 import { allStrings, copyProblems } from "@/lib/copy-rules";
 
 const rulesFor = (s: string) => copyProblems([s]).map((p) => p.rule);
@@ -8,7 +8,10 @@ describe("copyProblems", () => {
     it.each([
         ["em dash", "I built it — fast."],
         ["emoji", "Learning matters ✨"],
-        ["long sentence", "One two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone."],
+        [
+            "long sentence",
+            "One two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone.",
+        ],
         ["negative contrast", "It is not a report, but a system."],
         ["negative contrast", "I measure it rather than guess."],
         ["negative contrast", "It's not about speed."],

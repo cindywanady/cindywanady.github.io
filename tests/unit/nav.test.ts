@@ -1,5 +1,5 @@
-import { describe, expect, it } from "vitest";
 import { site } from "@content";
+import { describe, expect, it } from "vitest";
 import { currentNavHref } from "@/lib/nav";
 
 describe("currentNavHref", () => {

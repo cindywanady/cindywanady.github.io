@@ -1,6 +1,6 @@
+import { site } from "@content";
 import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { site } from "@content";
 import { NavList } from "@/components/site/nav-list";
 import { PersonJsonLd } from "@/components/site/person-json-ld";
 import { SiteFooter } from "@/components/site/site-footer";
@@ -24,7 +24,11 @@ describe("SiteFooter", () => {
     it("links the three profiles by name and publishes no email", () => {
         const { container } = render(<SiteFooter />);
         const nav = screen.getByRole("navigation", { name: "Profiles" });
-        expect(within(nav).getAllByRole("link").map((a) => a.getAttribute("href"))).toEqual(site.identity.profiles.map((p) => p.url));
+        expect(
+            within(nav)
+                .getAllByRole("link")
+                .map((a) => a.getAttribute("href")),
+        ).toEqual(site.identity.profiles.map((p) => p.url));
         for (const p of site.identity.profiles) {
             const link = within(nav).getByRole("link", { name: p.label });
             expect(link.querySelector("svg"), `${p.label} icon`).not.toBeNull();

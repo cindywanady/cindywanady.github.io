@@ -1,5 +1,5 @@
-import type { Role } from "@content/schema";
 import type { ReactNode } from "react";
+import type { Role } from "@content/schema";
 
 /** One job: dates beside title, organization, and what she did there. */
 export function RoleEntry({ role, children }: { role: Role; children?: ReactNode }) {

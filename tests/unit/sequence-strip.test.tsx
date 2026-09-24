@@ -5,7 +5,12 @@ import { SequenceStrip } from "@/components/site/sequence-strip";
 const steps = [{ label: "Field mapping" }, { label: "Validation rules" }, { label: "Cutover", detail: "go-live" }];
 
 function stubMotion(reduced: boolean) {
-    vi.stubGlobal("matchMedia", (query: string) => ({ matches: reduced && query.includes("reduce"), media: query, addEventListener() {}, removeEventListener() {} }));
+    vi.stubGlobal("matchMedia", (query: string) => ({
+        matches: reduced && query.includes("reduce"),
+        media: query,
+        addEventListener() {},
+        removeEventListener() {},
+    }));
 }
 
 let trigger: (visible: boolean) => void = () => {};

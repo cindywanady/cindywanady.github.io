@@ -11,11 +11,11 @@
  *    of "verified" fails the run; uncertain answers are written to
  *    claims-review.md for a person to decide.
  */
-import { writeFileSync } from "node:fs";
 import { allClaims } from "@content";
-import { choice, TypeSafeClient } from "@typesafe-ai/sdk";
-import { type Claim, checkEvidence } from "@/lib/claims";
+import { TypeSafeClient, choice } from "@typesafe-ai/sdk";
+import { writeFileSync } from "node:fs";
 import { type Relation, type Verdict, verdictFor } from "@/lib/claim-verdict";
+import { type Claim, checkEvidence } from "@/lib/claims";
 
 const REVIEW_FILE = "claims-review.md";
 const CONCURRENCY = 4;
@@ -87,7 +87,9 @@ async function main(): Promise<number> {
                   .join("\n")}\n`,
     );
 
-    console.log(`${results.length} claims: ${results.length - failing.length} verified, ${failing.length} failing, ${review.length} for review in ${REVIEW_FILE}`);
+    console.log(
+        `${results.length} claims: ${results.length - failing.length} verified, ${failing.length} failing, ${review.length} for review in ${REVIEW_FILE}`,
+    );
     return failing.length === 0 ? 0 : 1;
 }
 

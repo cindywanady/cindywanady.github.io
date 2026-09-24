@@ -1,50 +1,76 @@
-# Builds the static export and publishes it to GitHub Pages.
+# Checks every change and publishes main to GitHub Pages.
 #
-# Requires Settings > Pages > Source to be "GitHub Actions". The legacy branch
-# source runs Jekyll on the raw repository and would publish the Next.js
-# source instead of the site.
+# Settings > Pages > Source should be "GitHub Actions". While it is still the
+# legacy branch source, every push also runs GitHub's own Jekyll build, which
+# publishes the raw repository, and whichever deploy finishes last is what
+# the site shows.
 name: Deploy
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-  workflow_dispatch:
+    push:
+        branches: [main]
+    pull_request:
+    workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+    contents: read
+    pages: write
+    id-token: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: false
+    group: pages-${{ github.ref }}
+    cancel-in-progress: false
 
 jobs:
-  check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: npm
-      - run: npm ci
-      - run: npm run typecheck
-      - run: npm run build
-      - run: npm test
-      - uses: actions/upload-pages-artifact@v3
-        if: github.event_name != 'pull_request'
-        with:
-          path: out
+    check:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v7
+            - uses: actions/setup-node@v7
+              with:
+                  node-version: 24
+                  cache: npm
+            - run: npm ci
+            - run: npm run typecheck
+            - run: npm run format:check
+            - run: npm run build
+            - run: npm test
+            - run: npx playwright install --with-deps chromium
+            - run: npm run e2e
+            - uses: actions/upload-pages-artifact@v5
+              if: github.event_name != 'pull_request'
+              with:
+                  path: out
 
-  deploy:
-    if: github.event_name != 'pull_request'
-    needs: check
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+    # Asks TypeSafe whether each claim on the site is supported by its quote.
+    # Blocks the deploy when the TYPESAFE_API_KEY secret exists; skipped with a
+    # warning until it does. The code checks for fabricated quotes and numbers
+    # run in `npm test` above either way.
+    claims:
+        runs-on: ubuntu-latest
+        env:
+            TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        steps:
+            - uses: actions/checkout@v7
+            - uses: actions/setup-node@v7
+              if: env.TYPESAFE_API_KEY != ''
+              with:
+                  node-version: 24
+                  cache: npm
+            - run: npm ci
+              if: env.TYPESAFE_API_KEY != ''
+            - run: npm run claims
+              if: env.TYPESAFE_API_KEY != ''
+            - run: echo "::warning title=Claims not checked::Add a TYPESAFE_API_KEY repository secret to check every claim against its source before deploying."
+              if: env.TYPESAFE_API_KEY == ''
+
+    deploy:
+        if: github.event_name != 'pull_request'
+        needs: [check, claims]
+        runs-on: ubuntu-latest
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        steps:
+            - id: deployment
+              uses: actions/deploy-pages@v5

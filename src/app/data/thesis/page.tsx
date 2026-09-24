@@ -35,7 +35,10 @@ export default function ThesisPage() {
                         </li>
                     ))}
                 </ul>
-                <a href="/data/" className="self-start font-display text-sm font-semibold text-brand-secondary underline underline-offset-4 hover:text-brand-700">
+                <a
+                    href="/data/"
+                    className="self-start font-display text-sm font-semibold text-brand-secondary underline underline-offset-4 hover:text-brand-700"
+                >
                     {page.text.back}
                 </a>
             </div>

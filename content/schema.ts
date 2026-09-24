@@ -20,7 +20,10 @@ const linkSchema = z.object({ label: text, url: httpsUrl });
 
 export const stripSchema = z.object({
     title: text,
-    steps: z.array(z.object({ label: text, detail: text.optional() })).min(3).max(8),
+    steps: z
+        .array(z.object({ label: text, detail: text.optional() }))
+        .min(3)
+        .max(8),
     evidence: claimSchema,
 });
 

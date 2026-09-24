@@ -1,6 +1,6 @@
+import type { ReactNode } from "react";
 import { site } from "@content";
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
 import { PageIntro } from "@/components/site/page-intro";
 import { SequenceStrip } from "@/components/site/sequence-strip";
 
@@ -58,7 +58,11 @@ export default function YogaPage() {
                 <blockquote className="max-w-[36rem] border-t-4 border-yoga pt-6 text-2xl leading-snug text-primary md:text-3xl">
                     <p>{yoga.reflection.text}</p>
                 </blockquote>
-                <a href={instagram.url} rel="me noreferrer" className="self-start font-display text-sm font-semibold text-brand-secondary underline underline-offset-4 hover:text-brand-700">
+                <a
+                    href={instagram.url}
+                    rel="me noreferrer"
+                    className="self-start font-display text-sm font-semibold text-brand-secondary underline underline-offset-4 hover:text-brand-700"
+                >
                     {page.text.instagram}
                 </a>
             </Section>
