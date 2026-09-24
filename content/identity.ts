@@ -7,17 +7,17 @@ export const identity = {
     alumniOf: ["Monash University", "Prasetiya Mulya University"],
     hero: {
         claim: {
-            text: "Learning matters more than perfection.",
-            source: "yoga",
-            quote: "learning matters more than perfection",
+            text: "Data scientist in CRM. Yoga practitioner.",
+            source: "brief",
+            quote: "Cindy Wanady is a data scientist working in CRM and a yoga practitioner.",
         },
-        emphasis: "Learning",
+        emphasis: "Data scientist",
     },
     intro: [
         {
-            text: "I work in data, across CRM automation, data migration and operational reporting.",
+            text: "At Mekari, I work across CRM automation, data migration, and reporting.",
             source: "cv",
-            quote: "Data professional with 6 years across CRM automation, data migration, and operational reporting",
+            quote: "Data professional with 6 years across CRM automation, data migration, and operational reporting, including 4 years owning workflow automation and reporting for a B2B SaaS company.",
         },
         {
             text: "I also practice Hatha and Vinyasa yoga.",

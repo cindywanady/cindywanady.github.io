@@ -2,7 +2,7 @@
 
 ## Where things live
 
-- `sources/` holds facts. `cv.md` is Cindy's CV as plain text; `yoga.md` holds her yoga facts. Nothing else on the site may state a fact that is not in one of them.
+- `sources/` holds facts. `cv.md` contains Cindy's CV, `yoga.md` contains her practice notes, and `brief.md` records the site owner's requested professional positioning. Claims must point to one of these sources.
 - `content/` holds everything a reader sees, as typed modules. `content/index.ts` parses each against a zod schema in `content/schema.ts` when the site builds. A missing or empty field fails the build and names the field.
 - `src/app/` and `src/components/` hold layout only. They read from `content/` and contain no copy.
 

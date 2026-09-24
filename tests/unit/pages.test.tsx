@@ -11,7 +11,7 @@ import YogaPage from "@/app/yoga/page";
 /**
  * A half's anatomy: its direct children, by tag. The strips inside differ in
  * length on purpose (5 migration steps, 7 poses), so only the column's own
- * parts are compared: heading, true line, strip, proof list, link.
+ * parts are compared: heading, true line, proof list, link.
  */
 function anatomy(el: Element): string[] {
     return Array.from(el.children).map((c) => c.tagName);
@@ -21,18 +21,18 @@ describe("home", () => {
     it("gives both practices the same anatomy", () => {
         render(<HomePage />);
         const [data, yoga] = screen.getAllByRole("region");
-        expect(within(data).getByRole("heading", { level: 2 })).toHaveTextContent("Data");
-        expect(within(yoga).getByRole("heading", { level: 2 })).toHaveTextContent("Yoga");
-        expect(anatomy(data)).toEqual(["H2", "P", "FIGURE", "UL", "A"]);
+        expect(within(data).getByRole("heading", { level: 2 })).toHaveTextContent("Data science");
+        expect(within(yoga).getByRole("heading", { level: 2 })).toHaveTextContent("Yoga practice");
+        expect(anatomy(data)).toEqual(["H2", "P", "UL", "A"]);
         expect(anatomy(yoga)).toEqual(anatomy(data));
     });
 
-    it("leads with her own words, and names her in the lede", () => {
+    it("leads with her professional identity, and names her in the lede", () => {
         render(<HomePage />);
         const [h1] = screen.getAllByRole("heading", { level: 1 });
         expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
-        expect(h1).toHaveTextContent("Learning matters more than perfection.");
-        expect(within(h1).getByText("Learning")).toHaveClass("text-data");
+        expect(h1).toHaveTextContent("Data scientist in CRM. Yoga practitioner.");
+        expect(within(h1).getByText("Data scientist")).toHaveClass("hero-emphasis");
         expect(screen.getByText(/I'm Cindy Wanady\./)).toBeInTheDocument();
     });
 

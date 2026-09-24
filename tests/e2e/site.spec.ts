@@ -63,13 +63,19 @@ test.describe("a reader whose OS is set to dark", () => {
 test.describe("a reader who prefers reduced motion", () => {
     test.use({ reducedMotion: "reduce" });
     test("sees every strip step at once, with no animation", async ({ page }) => {
-        await page.goto("/");
+        await page.goto("/yoga/");
         const steps = page.locator(".strip-step");
-        await expect(steps).toHaveCount(12);
+        await expect(steps).toHaveCount(7);
         for (const step of await steps.all()) {
             expect(await step.evaluate((el) => getComputedStyle(el).opacity)).toBe("1");
             expect(await step.evaluate((el) => getComputedStyle(el).transitionDuration)).toBe("0s");
         }
+    });
+
+    test("sees a still chakra behind the portrait", async ({ page }) => {
+        await page.goto("/");
+        await expect(page.locator(".chakra-orbit")).toHaveCSS("animation-name", "none");
+        await expect(page.getByRole("img", { name: "Cindy Wanady" })).toBeVisible();
     });
 });
 

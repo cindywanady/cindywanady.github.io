@@ -8,6 +8,7 @@ export function PersonJsonLd() {
         "@type": "Person",
         name: identity.name,
         url: identity.url,
+        image: new URL("/cindy-portrait.webp", identity.url).toString(),
         description: site.pages.home.description,
         jobTitle: identity.jobTitle,
         worksFor: { "@type": "Organization", name: identity.worksFor },

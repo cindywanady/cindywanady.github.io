@@ -1,7 +1,7 @@
 /** The yoga half. Quotes are from sources/yoga.md. */
 export const yoga = {
     column: {
-        heading: "Yoga",
+        heading: "Yoga practice",
         trueLine: {
             text: "I have practiced Hatha and Vinyasa yoga since 2022.",
             source: "yoga",
@@ -36,9 +36,9 @@ export const yoga = {
                 quote: "YTT 200-hour, in progress",
             },
             {
-                text: "Yoga taught me that learning matters more than perfection.",
+                text: "My practice includes a seven-pose sequence, from Mountain to Downward-facing dog.",
                 source: "yoga",
-                quote: "A lucky encounter with yoga taught me that learning matters more than perfection.",
+                quote: "Practices Surya Namaskar A: Mountain (Tadasana), Upward salute (Urdhva Hastasana), Forward fold (Uttanasana), Half lift (Ardha Uttanasana), Four-limbed staff (Chaturanga Dandasana), Upward-facing dog (Urdhva Mukha Svanasana), Downward-facing dog (Adho Mukha Svanasana).",
             },
         ],
         href: "/yoga/",

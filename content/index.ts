@@ -28,7 +28,7 @@ export function allClaims(): Claim[] {
         if (Array.isArray(value)) return value.forEach(walk);
         if (value && typeof value === "object") {
             const v = value as Record<string, unknown>;
-            if (typeof v.text === "string" && typeof v.quote === "string" && (v.source === "cv" || v.source === "yoga")) {
+            if (typeof v.text === "string" && typeof v.quote === "string" && (v.source === "cv" || v.source === "yoga" || v.source === "brief")) {
                 found.push(v as Claim);
                 return;
             }

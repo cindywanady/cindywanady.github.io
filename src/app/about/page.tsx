@@ -10,7 +10,7 @@ export const metadata: Metadata = { title: page.title, description: page.descrip
 export default function AboutPage() {
     return (
         <>
-            <PageIntro title={page.title}>
+            <PageIntro title={page.title} portrait>
                 <p>{site.identity.intro.map((c) => c.text).join(" ")}</p>
             </PageIntro>
 

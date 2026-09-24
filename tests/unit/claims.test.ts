@@ -1,11 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { type Claim, checkEvidence, normalize, numbersIn, readSource } from "@/lib/claims";
+import { type Claim, type Source, checkEvidence, normalize, numbersIn, readSource } from "@/lib/claims";
 
 const src = {
     cv: "Led CRM platform migrations covering est. 50,000 records across 5 modules.",
     yoga: "Practicing yoga for 3 years,\nas of 2026-09-24.",
+    brief: "Cindy Wanady is a data scientist working in CRM and a yoga practitioner.",
 };
-const read = (s: "cv" | "yoga") => src[s];
+const read = (s: Source) => src[s];
 
 describe("numbersIn", () => {
     it("reads numbers the way a reader would", () => {
@@ -65,5 +66,6 @@ describe("readSource", () => {
     it("reads the committed source files", () => {
         expect(readSource("cv")).toContain("Mekari");
         expect(readSource("yoga")).toContain("Vidyarasa");
+        expect(readSource("brief")).toContain("data scientist working in CRM");
     });
 });

@@ -1,21 +1,45 @@
 import type { ReactNode } from "react";
-import { BreathingField } from "./breathing-field";
+import { ChakraField } from "./chakra-field";
 
-/**
- * A page's opening: the h1, its lede, and the breathing field behind them on
- * the right. The field takes the page's half: terracotta for data, olive for
- * yoga, both for pages that belong to neither.
- */
-export function PageIntro({ title, field = "both", children }: { title: ReactNode; field?: "data" | "yoga" | "both"; children?: ReactNode }) {
+/** A page's opening with Cindy's portrait, a related editorial image, or the chakra. */
+export function PageIntro({
+    title,
+    field = "both",
+    home = false,
+    portrait = false,
+    artwork,
+    children,
+}: {
+    title: ReactNode;
+    field?: "data" | "yoga" | "both";
+    home?: boolean;
+    portrait?: boolean;
+    artwork?: string;
+    children?: ReactNode;
+}) {
+    const showPortrait = home || portrait;
+    const scene = artwork ?? (field === "data" ? "/data-workspace.webp" : field === "yoga" ? "/yoga-practice.webp" : null);
     return (
-        <div className="relative isolate pt-12 pb-16 md:pt-20 md:pb-24">
-            <div className="absolute top-0 right-0 -z-10 size-64 opacity-40 md:top-2 md:size-[30rem] md:opacity-80">
-                <BreathingField tone={field} />
+        <div className={home ? "intro-shell intro-shell-home" : "intro-shell intro-shell-inner"}>
+            <div className="intro-copy">
+                <h1 className="intro-title">{title}</h1>
+                {children && <div className="intro-lede">{children}</div>}
             </div>
-            <h1 className="max-w-[16ch] font-display text-5xl leading-[1] font-semibold tracking-[-0.03em] text-primary md:text-7xl lg:text-[5.5rem]">
-                {title}
-            </h1>
-            {children && <div className="mt-7 max-w-[38rem] text-xl leading-relaxed text-secondary md:text-2xl">{children}</div>}
+            <div className={showPortrait ? "intro-art intro-art-portrait" : scene ? "intro-art intro-art-scene" : "intro-art intro-art-symbol"}>
+                {(showPortrait || !scene) && <ChakraField tone={field} />}
+                {showPortrait && (
+                    <picture className="intro-portrait">
+                        <source
+                            type="image/webp"
+                            srcSet="/cindy-portrait-450.webp 450w, /cindy-portrait.webp 1086w"
+                            sizes={home ? "(max-width: 760px) 80vw, 420px" : "(max-width: 760px) 70vw, 300px"}
+                        />
+                        <img src="/cindy-portrait.webp" alt="Cindy Wanady" width="1086" height="1448" fetchPriority="high" />
+                    </picture>
+                )}
+                {scene && !showPortrait && <img src={scene} alt="" width="1536" height="1024" className="intro-scene" />}
+                {portrait && <img src="/botanical-branch.webp" alt="" width="1024" height="1536" className="intro-botanical" />}
+            </div>
         </div>
     );
 }

@@ -8,7 +8,7 @@ import { join } from "node:path";
  * number shown is one the span contains. Whether the span actually supports
  * the sentence is a judgment, made by scripts/claims.ts.
  */
-export type Source = "cv" | "yoga";
+export type Source = "cv" | "yoga" | "brief";
 
 export type Claim = {
     text: string;

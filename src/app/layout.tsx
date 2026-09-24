@@ -1,34 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import { Familjen_Grotesk, Source_Serif_4 } from "next/font/google";
 import { PersonJsonLd } from "@/components/site/person-json-ld";
-import { RevealRoot } from "@/components/site/reveal-root";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteHeader } from "@/components/site/site-header";
 import { SkipLink } from "@/components/site/skip-link";
 import "@/styles/globals.css";
-import { cx } from "@/utils/cx";
-
-const display = Familjen_Grotesk({
-    subsets: ["latin"],
-    display: "swap",
-    variable: "--font-familjen",
-});
-
-const body = Source_Serif_4({
-    subsets: ["latin"],
-    display: "swap",
-    variable: "--font-source-serif",
-});
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://cindywanady.github.io"),
-    title: { default: "Cindy Wanady: Data and Yoga", template: "%s, Cindy Wanady" },
+    title: { default: "Cindy Wanady | Data Scientist in CRM & Yoga Practitioner", template: "%s | Cindy Wanady" },
     openGraph: {
         type: "website",
         siteName: "Cindy Wanady",
-        images: [{ url: "/og.png", width: 1200, height: 630, alt: "Cindy Wanady: data and yoga" }],
+        images: [{ url: "/og.png", width: 1200, height: 630, alt: "Cindy Wanady, data scientist in CRM and yoga practitioner" }],
     },
     twitter: { card: "summary_large_image" },
+    verification: { google: "tJPBeZWPyaUjNDjeIAcI3rTsAKTAdQj4K0G2tSFU8S0" },
 };
 
 export const viewport: Viewport = {
@@ -39,14 +25,13 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
-            <body className={cx(display.variable, body.variable, "flex min-h-dvh flex-col bg-primary font-body text-primary antialiased")}>
+            <body className="flex min-h-dvh flex-col bg-primary font-body text-primary antialiased">
                 <SkipLink />
                 <SiteHeader />
-                <main id="main" className="mx-auto w-full max-w-5xl px-5 md:px-8">
+                <main id="main" className="mx-auto w-full max-w-6xl px-5 md:px-8">
                     {children}
                 </main>
                 <SiteFooter />
-                <RevealRoot />
                 <PersonJsonLd />
             </body>
         </html>

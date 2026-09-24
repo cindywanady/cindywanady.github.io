@@ -37,6 +37,7 @@ Every factual sentence is a claim: the text shown, plus a quote copied word for 
 
 - `sources/cv.md` is her CV as plain text.
 - `sources/yoga.md` holds her yoga facts.
+- `sources/brief.md` records the site owner's direction on professional identity.
 
 A fact changes in the source first. Then update the claim that quotes it. `npm test` fails when a quote is not in its source, or when the text shows a number the quote does not contain. That is how a changed CV finds every sentence it no longer supports.
 
@@ -44,7 +45,7 @@ A fact changes in the source first. Then update the claim that quotes it. `npm t
 
 ## How it is built
 
-Next.js exports the site as static HTML to `out/`. Styles use Tailwind and a few components copied from [Untitled UI](https://www.untitledui.com/react) (MIT). The colors come from Cindy's palette in `src/design/palette.ts`. `docs/design-system.md` explains which color may do what, and the one bold element, the numbered sequence strip.
+Next.js exports the site as static HTML to `out/`. Styles use Tailwind and a few components copied from [Untitled UI](https://www.untitledui.com/react) (MIT). The colors come from Cindy's palette in `src/design/palette.ts`. The site self-hosts its fonts, portrait, and editorial images. `docs/design-system.md` describes the visual system and motion.
 
 ## Publishing
 

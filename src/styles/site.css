@@ -1,0 +1,361 @@
+/* Editorial type, fine rules, and a single botanical illustration give the
+   site its quiet pace. The eight client colors remain in theme.css. */
+
+@font-face {
+    font-family: "Familjen Grotesk";
+    src: url("/fonts/familjen-grotesk-latin.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Source Serif 4";
+    src: url("/fonts/source-serif-4-latin.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 200 900;
+    font-display: swap;
+}
+
+:root {
+    --font-familjen: "Familjen Grotesk";
+    --font-source-serif: "Source Serif 4";
+}
+
+body {
+    background-color: var(--color-neutral-50);
+}
+
+::selection {
+    color: var(--color-neutral-50);
+    background: var(--color-brand-700);
+}
+
+.intro-shell {
+    position: relative;
+    display: grid;
+    align-items: center;
+    min-height: 23rem;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-neutral-200);
+}
+
+.intro-shell-home {
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+    min-height: 35rem;
+    padding-block: 4.5rem 5rem;
+}
+
+.intro-shell-inner {
+    grid-template-columns: minmax(0, 1fr) 25rem;
+    padding-block: 4rem 4.5rem;
+}
+
+.intro-copy {
+    position: relative;
+    z-index: 2;
+}
+
+.intro-title {
+    max-width: 14ch;
+    margin: 0;
+    color: var(--color-neutral-800);
+    font-family: var(--font-body);
+    font-size: clamp(3.9rem, 6.6vw, 6.4rem);
+    font-weight: 500;
+    line-height: 0.99;
+    letter-spacing: -0.055em;
+    text-wrap: balance;
+}
+
+.intro-shell-inner .intro-title {
+    max-width: 16ch;
+    font-size: clamp(3.7rem, 5.5vw, 5.5rem);
+}
+
+.hero-emphasis {
+    color: var(--color-brand-700);
+}
+
+.intro-lede {
+    max-width: 36rem;
+    margin-top: 2rem;
+    color: var(--color-neutral-700);
+    font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+    line-height: 1.52;
+}
+
+.intro-lede p {
+    margin: 0;
+}
+
+.intro-art {
+    position: relative;
+    align-self: stretch;
+    min-height: 20rem;
+}
+
+.intro-art-portrait::before {
+    position: absolute;
+    top: 13%;
+    right: 7%;
+    width: 83%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--color-neutral-100);
+    content: "";
+}
+
+.intro-art-portrait .chakra-field {
+    z-index: 1;
+    opacity: 0.68;
+}
+
+.intro-portrait {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom: -5rem;
+    display: block;
+    height: 112%;
+    width: 100%;
+}
+
+.intro-portrait img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+}
+
+.intro-shell-inner .intro-portrait {
+    right: 0;
+    bottom: -4.5rem;
+    height: 110%;
+}
+
+.intro-scene {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 100%;
+    height: 72%;
+    transform: translateY(-50%);
+    object-fit: cover;
+    border-radius: 42% 42% 0.25rem 0.25rem;
+    box-shadow: 0 18px 44px -30px rgb(74 52 40 / 0.46);
+}
+
+.chakra-field {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(100%, 30rem);
+    height: auto;
+    transform: translate(-50%, -50%);
+}
+
+.intro-shell-inner .chakra-field {
+    width: min(100%, 22rem);
+    opacity: 0.78;
+}
+
+.intro-botanical {
+    position: absolute;
+    right: -3rem;
+    bottom: -3rem;
+    width: auto;
+    height: 74%;
+    object-fit: contain;
+    object-position: right bottom;
+    pointer-events: none;
+}
+
+.practice-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(2rem, 5vw, 5rem);
+    padding-top: 4.25rem;
+}
+
+.practice-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.45rem;
+    min-width: 0;
+    border-top: 3px solid var(--practice-color);
+    padding-top: 1.7rem;
+}
+
+.practice-panel-data {
+    --practice-color: var(--color-data);
+}
+
+.practice-panel-yoga {
+    --practice-color: var(--color-yoga);
+}
+
+.practice-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin: 0;
+    color: var(--color-neutral-800);
+    font-family: var(--font-body);
+    font-size: clamp(2.25rem, 3.4vw, 3.25rem);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+}
+
+.practice-mark {
+    width: 2.65rem;
+    height: 2.65rem;
+    flex: none;
+    color: var(--practice-color);
+}
+
+.featured-project-image {
+    display: block;
+    width: 100%;
+    max-height: 25rem;
+    margin-bottom: 1rem;
+    object-fit: cover;
+    border-radius: 0.45rem;
+}
+
+.practice-line {
+    max-width: 38ch;
+    min-height: 5rem;
+    margin: 0;
+    color: var(--color-neutral-800);
+    font-size: clamp(1.15rem, 1.65vw, 1.35rem);
+    line-height: 1.45;
+}
+
+.practice-proof {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.practice-proof li {
+    border-top: 1px solid var(--color-neutral-200);
+    padding: 1rem 0;
+    color: var(--color-neutral-700);
+    font-size: 1.05rem;
+    line-height: 1.45;
+}
+
+.practice-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 0.55rem 0 0.3rem;
+    color: var(--color-brand-700);
+    border-bottom: 1px solid var(--color-brand-700);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.practice-link:hover {
+    color: var(--color-brand-800);
+    border-color: var(--color-brand-800);
+}
+
+.chakra-orbit {
+    animation: chakra-turn 70s linear infinite;
+}
+
+.chakra-breath {
+    animation: chakra-inhale 8s ease-in-out infinite;
+}
+
+@keyframes chakra-turn {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes chakra-inhale {
+    50% {
+        transform: scale(1.045);
+    }
+}
+
+@media (max-width: 760px) {
+    .intro-shell-home,
+    .intro-shell-inner {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        padding-block: 3.5rem 2rem;
+    }
+
+    .intro-title {
+        font-size: clamp(3.45rem, 12vw, 5rem);
+    }
+
+    .intro-shell-inner .intro-title {
+        font-size: clamp(3.25rem, 10.5vw, 4.5rem);
+    }
+
+    .intro-art {
+        min-height: 20rem;
+        margin-top: 1rem;
+    }
+
+    .intro-shell-inner .intro-art {
+        min-height: 12rem;
+        margin-top: -1rem;
+    }
+
+    .intro-botanical {
+        right: -2rem;
+        bottom: -2rem;
+        height: 70%;
+    }
+
+    .intro-portrait {
+        bottom: -2rem;
+        height: 105%;
+    }
+
+    .intro-shell-inner .intro-portrait {
+        bottom: -2rem;
+    }
+
+    .intro-scene {
+        right: 50%;
+        width: min(100%, 28rem);
+        height: 100%;
+        transform: translate(50%, -50%);
+    }
+
+    .chakra-field {
+        width: min(80vw, 24rem);
+    }
+
+    .practice-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+        padding-top: 3.5rem;
+    }
+
+    .practice-line {
+        min-height: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .chakra-orbit,
+    .chakra-breath {
+        animation: none;
+    }
+}

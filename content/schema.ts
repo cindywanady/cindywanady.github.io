@@ -12,7 +12,7 @@ const httpsUrl = z.url({ protocol: /^https$/ });
 
 export const claimSchema = z.object({
     text,
-    source: z.enum(["cv", "yoga"]),
+    source: z.enum(["cv", "yoga", "brief"]),
     quote: text,
 });
 

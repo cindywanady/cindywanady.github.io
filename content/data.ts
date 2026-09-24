@@ -1,9 +1,9 @@
 /** The data half: work, the home column, skills. Quotes are from sources/cv.md. */
 export const data = {
     column: {
-        heading: "Data",
+        heading: "Data science",
         trueLine: {
-            text: "I work on both sides of the pipeline: CRM systems that generate data, and models built on them.",
+            text: "I work across the CRM systems that generate data and the models built on it.",
             source: "cv",
             quote: "Works both sides of the pipeline, CRM systems that generate data and the models built on top of them.",
         },
@@ -24,9 +24,9 @@ export const data = {
         },
         proof: [
             {
-                text: "I cut a recurring stakeholder report from about 2 hours to a few minutes per event.",
+                text: "I design and maintain 700+ workflow automations across 50+ connected business modules.",
                 source: "cv",
-                quote: "Cut a recurring stakeholder report from about 2 hours to a few minutes per event",
+                quote: "Designed, maintained, and optimized 700+ workflow automations across 50+ interconnected business modules.",
             },
             {
                 text: "I led CRM migrations of about 50,000 records across 5 modules.",

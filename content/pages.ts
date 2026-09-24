@@ -6,14 +6,14 @@
  */
 export const pages = {
     home: {
-        title: "Cindy Wanady: Data and Yoga",
-        description: "Data and yoga. Cindy Wanady works in CRM data and analytics in the tech industry and practices Hatha and Vinyasa yoga.",
+        title: "Cindy Wanady | Data Scientist in CRM & Yoga Practitioner",
+        description: "Cindy Wanady is a data scientist working in CRM at Mekari and a Hatha and Vinyasa yoga practitioner.",
         text: {
             greeting: "I'm Cindy Wanady.",
         },
     },
     data: {
-        title: "Data work",
+        title: "Data science and CRM",
         description: "CRM automation, data migration and reporting at Mekari, and a master's thesis and course projects at Monash.",
         text: {
             current: "Current work",

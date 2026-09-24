@@ -15,12 +15,12 @@ describe.skipIf(!built)("built home page", () => {
         // characters, and the description beneath, cut off near 155.
         const title = html.match(/<title>([^<]+)<\/title>/)?.[1] ?? "";
         const description = html.match(/<meta name="description" content="([^"]+)"/)?.[1] ?? "";
-        expect(title).toBe("Cindy Wanady: Data and Yoga");
-        expect(description.startsWith("Data and yoga.")).toBe(true);
+        expect(title).toBe("Cindy Wanady | Data Scientist in CRM &amp; Yoga Practitioner");
+        expect(description.startsWith("Cindy Wanady is a data scientist working in CRM")).toBe(true);
         expect(description.length).toBeLessThanOrEqual(155);
-        expect(description).toContain("tech industry");
-        expect(description).not.toContain("Mekari");
-        expect(html).toContain('<meta property="og:title" content="Cindy Wanady: Data and Yoga"');
+        expect(description).toContain("Mekari");
+        expect(html).toContain('<meta property="og:title" content="Cindy Wanady | Data Scientist in CRM &amp; Yoga Practitioner"');
+        expect(html).toContain('<meta name="google-site-verification" content="tJPBeZWPyaUjNDjeIAcI3rTsAKTAdQj4K0G2tSFU8S0"');
     });
 
     it("renders each half's link with its arrow", () => {

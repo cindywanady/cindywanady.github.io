@@ -9,7 +9,7 @@ Cindy Wanady's personal site. Two practices, data and yoga, with equal weight. N
 - Never invent a fact, number or detail about Cindy. If it is not in `sources/`, ask.
 - Copy: first person, American spelling, no sentence over 20 words, no em dashes, no emoji, no "not X but Y" framing, no sales words.
 - Never add: eyebrow or kicker labels, gradients, glass cards, accent rails, or decorative numbering.
-- Motion is limited to four things: the breathing field, the sequence strip drawing in, sections rising in on scroll, and cards lifting on hover. All four stop under reduced motion, and none may hide something already on screen.
+- Motion is limited to the chakra turning and breathing, the sequence strips drawing in, and project cards lifting on hover. Reduced motion stops these effects. Page content stays visible without scrolling or JavaScript.
 - Coral, mustard and sand are never text colors.
 - Light theme only.
 - No email address on the site.

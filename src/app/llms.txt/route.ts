@@ -13,6 +13,8 @@ export function GET() {
     const lines = [
         `# ${identity.name}`,
         "",
+        `> ${identity.hero.claim.text}`,
+        "",
         `> ${identity.intro.map((c) => c.text).join(" ")}`,
         "",
         "## Data",

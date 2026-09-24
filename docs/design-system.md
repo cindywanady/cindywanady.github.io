@@ -23,26 +23,30 @@ The site is light only. There is no dark theme. The components' `dark:` classes 
 
 ## Type
 
-- Familjen Grotesk: her name, headings, navigation, labels, the sequence strip.
-- Source Serif 4: body text.
+- Familjen Grotesk appears in navigation, labels, and the sequence strips.
+- Source Serif 4 appears in the main headings and body copy.
+
+Both families load from `public/fonts/`, so the static build needs no font download.
 
 ## The sequence strip
 
-`src/components/site/sequence-strip.tsx` draws numbered steps joined by a rule. It is the site's one bold element and appears once per half: her CRM migration method on the data side, a practice sequence on the yoga side. Numbering is allowed there because the order is real, and nowhere else.
+`src/components/site/sequence-strip.tsx` draws numbered steps joined by a rule. The data page shows her CRM migration method, and the yoga page shows a practice sequence. Numbering follows the actual order of each process.
 
 - The rule and markers take the half's color. The numbers stay espresso so they pass contrast.
-- The strip follows its container's width. Below 36rem it runs vertically, which is why both home-page strips are vertical at desktop width.
+- The strip follows its container's width. Below 36rem it runs vertically so labels stay readable.
 - It renders complete on the server. Where the browser can observe scrolling and the reader allows motion, the steps draw in on arrival. Under reduced motion there is no animation.
 
-## The breathing field
+## Chakra and images
 
-`src/components/site/breathing-field.tsx` is the ambient background behind each page's opening: points on a slowly turning sphere whose radius swells and settles on a six-second breath. It takes the page's half, with terracotta and burgundy on data pages, olive and sand on the yoga page, and both elsewhere. It is decoration, hidden from screen readers, faint on phones so the headline stays readable, still under reduced motion, and paused when the tab is hidden or it is off screen.
+`src/components/site/chakra-field.tsx` draws a thin mandala behind Cindy's portrait. Its outer petals turn slowly, and its inner petals expand slightly. Reduced motion freezes both layers. The SVG is decorative and hidden from assistive technology.
+
+The homepage and About page use Cindy's supplied portrait, converted to WebP at two widths. The data and yoga pages use distinct generated editorial images. The About page also uses a generated botanical branch. Every image sits in `public/`, and `docs/visual-assets.md` records its source and prompt.
 
 ## Depth
 
-The two home halves are raised panels: a sand-tinted fill, rounded corners, and their tone as a band along the top edge. Projects on `/data/` are cards on the same pattern, and the one featured item carries a mustard band. Both lift slightly on hover.
+The two home sections use fine rules in terracotta and olive. This gives the evidence space without placing it in heavy cards. Projects on `/data/` retain soft panels, and the featured thesis carries a mustard band.
 
-Sections rise in as they scroll into view (`src/components/site/reveal-root.tsx`). Only a section that starts below the fold is ever held back, so nothing on screen at load blinks out.
+All content stays visible as a page loads. Project panels may lift on hover, and sequence strips may draw when they enter view.
 
 ## Banned
 
@@ -54,7 +58,7 @@ Sections rise in as they scroll into view (`src/components/site/reveal-root.tsx`
 - vertical accent rails
 - emoji
 
-The review also checks for things a regex cannot: decorative numbering, rows of big numbers with small labels, and motion beyond the four listed in `CLAUDE.md`.
+The review also checks decorative numbering and oversized statistics that could make the site feel generic.
 
 ## Components
 
