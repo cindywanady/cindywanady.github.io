@@ -27,7 +27,7 @@ export function HalfColumn({ column, tone }: { column: Column; tone: "data" | "y
                 alt=""
                 width="1200"
                 height="800"
-                loading="eager"
+                loading={tone === "data" ? "eager" : "lazy"}
                 decoding="async"
                 className="practice-image"
             />

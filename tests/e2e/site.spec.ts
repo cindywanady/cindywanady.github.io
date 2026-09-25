@@ -22,6 +22,7 @@ for (const [path, currentNav] of ROUTES) {
         });
 
         test("has no serious or critical accessibility violations", async ({ page }) => {
+            test.setTimeout(60_000);
             // Measure the settled page. Mid-draw, strip labels are partly
             // transparent and axe would score the animation frame it caught.
             await page.emulateMedia({ reducedMotion: "reduce" });

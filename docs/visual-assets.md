@@ -6,7 +6,7 @@ The supporting assets use Cindy's burgundy, terracotta, coral, mustard, olive, s
 
 | Asset | Prompt and use |
 | --- | --- |
-| `public/botanical-branch.webp` | A transparent, asymmetric pressed botanical branch with olive leaves and restrained coral blossoms. The Contact page uses it as decoration. |
+| `public/botanical-branch.webp` | A transparent, asymmetric pressed botanical branch with olive leaves and restrained coral blossoms. The Contact page uses a 512-pixel version because the artwork renders small. |
 | `public/data-workspace.webp` | Premium editorial still life of a research notebook with hand-drawn plots, a burgundy book, brass ruler, and olive branch. The data page uses it as an illustration. |
 | `public/yoga-practice.webp` | Premium editorial still life of a linen yoga mat, folded cloth, olive branch, and coral blossom in warm natural light. The yoga page uses it as an illustration. |
 | `public/thesis-research.webp` | Mixed media illustration of a source book connecting to three response paths. The data page and thesis page use it to introduce the research. |
@@ -20,6 +20,8 @@ The supporting assets use Cindy's burgundy, terracotta, coral, mustard, olive, s
 | `public/ambient-spectrum.webp` | A transparent field of orbital paths, small points, and spectral ribbons. It sits behind the site content and drifts slowly. |
 
 The supporting images were made with the built-in image generation tool and exported as WebP. Their prompts specify the listed subjects, realistic editorial materials, warm side lighting, the site's cream, burgundy, olive, and espresso palette, and no readable text, logos, or invented project results. The project images are decorative interpretations of the subjects rather than screenshots or documentary evidence.
+
+The data and yoga page illustrations also have 640-pixel and 1080-pixel WebP versions. The browser chooses the size that fits the screen, while the original 1536-pixel versions remain available for denser displays.
 
 The home data image was generated with the built-in tool at 1536 × 1024 pixels and encoded as an 83 KB, 1200 × 800 WebP. Its final prompt requested a woman at a working desk with a laptop showing an abstract CRM workflow and a pencil annotation in a notebook. It asked for natural light, candid detail, the site palette, and no readable words, logos, numbers, statistics, or invented results.
 
