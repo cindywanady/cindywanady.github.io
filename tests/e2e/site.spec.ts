@@ -72,6 +72,26 @@ test("mobile navigation is reachable from either side and clears the footer", as
     expect(footer).toBeLessThanOrEqual(nav);
 });
 
+test("mobile navigation stays tappable over the reading surface", async ({ browser }) => {
+    for (const width of [192, 390]) {
+        const context = await browser.newContext({ viewport: { width, height: 844 }, isMobile: true, hasTouch: true });
+        const page = await context.newPage();
+        await page.goto("/");
+
+        for (const [label, path] of [
+            ["Data", "/data/"],
+            ["Yoga", "/yoga/"],
+            ["About", "/about/"],
+            ["Contact", "/contact/"],
+        ]) {
+            await page.getByRole("navigation", { name: "Sections" }).getByRole("link", { name: label }).tap();
+            await expect(page).toHaveURL(new RegExp(`${path}$`));
+        }
+
+        await context.close();
+    }
+});
+
 test("the chakra stays centered after zooming in, out, and back", async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.emulateMedia({ reducedMotion: "reduce" });
@@ -92,6 +112,16 @@ test("the chakra stays centered after zooming in, out, and back", async ({ page 
     }
     const restored = await geometry();
     expect(Math.abs(restored.center - initial.center)).toBeLessThan(1);
+});
+
+test("the homepage has no sideways scroll after zooming in and returning to normal", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/");
+
+    for (const zoom of ["150%", "200%", "75%", "100%"]) {
+        await page.evaluate((value) => (document.documentElement.style.zoom = value), zoom);
+        expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
+    }
 });
 
 test("the ambient background follows scrolling and respects a motion preference change", async ({ page }) => {

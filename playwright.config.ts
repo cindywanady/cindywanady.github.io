@@ -7,7 +7,10 @@ export default defineConfig({
     fullyParallel: true,
     reporter: process.env.CI ? "github" : "list",
     use: { baseURL: "http://localhost:4321" },
-    projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
+    projects: [
+        { name: "chromium", testIgnore: /mobile-webkit\.spec\.ts/, use: { ...devices["Desktop Chrome"] } },
+        { name: "webkit-mobile", testMatch: /mobile-webkit\.spec\.ts/, use: { ...devices["iPhone 13"] } },
+    ],
     webServer: {
         command: "node scripts/serve-out.mjs",
         url: "http://localhost:4321",

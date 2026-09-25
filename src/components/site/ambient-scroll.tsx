@@ -21,7 +21,7 @@ export function AmbientScroll() {
                 to: "bottom-bottom",
                 direct: document.body,
                 props: {
-                    "--ambient-scroll": { from: "0px", to: "-24px", timing: "linear" },
+                    "--ambient-scroll": { from: "0px", to: "-12px", timing: "linear" },
                 },
             });
             instance.start();
