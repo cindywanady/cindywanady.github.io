@@ -24,6 +24,13 @@ export function PageIntro({
             <div className="intro-copy">
                 <h1 className="intro-title">{title}</h1>
                 {children && <div className="intro-lede">{children}</div>}
+                {home && (
+                    <div className="intro-spectrum" aria-hidden="true">
+                        {Array.from({ length: 7 }, (_, index) => (
+                            <span key={index} />
+                        ))}
+                    </div>
+                )}
             </div>
             <div className={showPortrait ? "intro-art intro-art-portrait" : scene ? "intro-art intro-art-scene" : "intro-art intro-art-symbol"}>
                 {(showPortrait || !scene) && <ChakraField tone={field} />}

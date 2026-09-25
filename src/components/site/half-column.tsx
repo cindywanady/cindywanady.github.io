@@ -23,7 +23,7 @@ export function HalfColumn({ column, tone }: { column: Column; tone: "data" | "y
                 <span>{column.heading}</span>
             </h2>
             <img
-                src={tone === "data" ? "/home-data.webp" : "/home-yoga.webp"}
+                src={tone === "data" ? "/home-data-workflow.webp" : "/home-yoga.webp"}
                 alt=""
                 width="1200"
                 height="800"

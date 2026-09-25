@@ -1,5 +1,5 @@
-/* The ambient layer, fine rules, and strong display type shape the site.
-   The eight client colors remain in theme.css. */
+/* Celestial paths, fine rules, and strong display type shape the site.
+   Cindy's eight core colors remain in theme.css. */
 
 @font-face {
     font-family: "Familjen Grotesk";
@@ -20,6 +20,9 @@
 :root {
     --font-familjen: "Familjen Grotesk";
     --font-source-serif: "Source Serif 4";
+    --color-spectrum-teal: #4c8a88;
+    --color-spectrum-violet: #7c78a6;
+    --color-spectrum-rose: #a7608a;
 }
 
 body {
@@ -30,11 +33,13 @@ body {
 body::before {
     position: fixed;
     z-index: 0;
-    inset: 0;
-    background: url("/ambient-traces.webp") 0 100% / 110% 110% no-repeat;
+    inset: -32px 0;
+    background: url("/ambient-spectrum.webp") 0 100% / 110% 110% no-repeat;
     content: "";
-    opacity: 0.16;
+    opacity: 0.55;
     pointer-events: none;
+    transform: translate3d(0, var(--ambient-scroll, 0px), 0);
+    will-change: transform;
     animation: ambient-drift 65s ease-in-out infinite alternate;
 }
 
@@ -107,6 +112,47 @@ footer {
 
 .intro-lede p {
     margin: 0;
+}
+
+.intro-spectrum {
+    display: flex;
+    gap: 0.35rem;
+    width: min(100%, 19rem);
+    height: 3px;
+    margin-top: 2rem;
+}
+
+.intro-spectrum span {
+    flex: 1;
+    background: var(--spectrum-color);
+}
+
+.intro-spectrum span:nth-child(1) {
+    --spectrum-color: var(--color-brand-700);
+}
+
+.intro-spectrum span:nth-child(2) {
+    --spectrum-color: var(--color-data);
+}
+
+.intro-spectrum span:nth-child(3) {
+    --spectrum-color: var(--color-feature);
+}
+
+.intro-spectrum span:nth-child(4) {
+    --spectrum-color: var(--color-yoga);
+}
+
+.intro-spectrum span:nth-child(5) {
+    --spectrum-color: var(--color-spectrum-teal);
+}
+
+.intro-spectrum span:nth-child(6) {
+    --spectrum-color: var(--color-spectrum-violet);
+}
+
+.intro-spectrum span:nth-child(7) {
+    --spectrum-color: var(--color-spectrum-rose);
 }
 
 .intro-art {
@@ -190,8 +236,8 @@ footer {
 .practice-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(2rem, 5vw, 5rem);
-    padding-top: 4.25rem;
+    gap: clamp(1.25rem, 3vw, 2.75rem);
+    padding-top: 3.5rem;
 }
 
 .practice-panel {
@@ -199,16 +245,38 @@ footer {
     flex-direction: column;
     gap: 1.45rem;
     min-width: 0;
-    padding-top: 1rem;
-    border-top: 2px solid var(--practice-color);
+    padding: clamp(1.25rem, 2.5vw, 2rem);
+    border-top: 3px solid var(--practice-color);
 }
 
 .practice-panel-data {
     --practice-color: var(--color-data);
+    background: var(--color-brand-700);
 }
 
 .practice-panel-yoga {
     --practice-color: var(--color-yoga);
+    background: rgb(217 194 163 / 0.22);
+}
+
+.practice-panel-data .practice-heading,
+.practice-panel-data .practice-line,
+.practice-panel-data .practice-proof li,
+.practice-panel-data .practice-link {
+    color: var(--color-neutral-50);
+}
+
+.practice-panel-data .practice-mark {
+    color: var(--color-ornament);
+}
+
+.practice-panel-data .practice-link {
+    border-bottom-color: var(--color-neutral-50);
+}
+
+.practice-panel-data .practice-link:hover {
+    color: var(--color-neutral-100);
+    border-bottom-color: var(--color-neutral-100);
 }
 
 .practice-heading {
@@ -297,13 +365,18 @@ footer {
 
 .practice-proof li {
     padding: 0.55rem 0;
+    border-top: 1px solid rgb(74 52 40 / 0.17);
     color: var(--color-neutral-700);
     font-size: 1.05rem;
     line-height: 1.45;
 }
 
 .practice-proof li + li {
-    margin-top: 0.55rem;
+    margin-top: 0.1rem;
+}
+
+.practice-panel-data .practice-proof li {
+    border-top-color: rgb(247 241 231 / 0.28);
 }
 
 .practice-link {
@@ -364,6 +437,10 @@ footer {
 @media (max-width: 760px) {
     body {
         padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+    }
+
+    body::before {
+        opacity: 0.4;
     }
 
     .site-nav {
@@ -469,8 +546,8 @@ footer {
 
     .practice-grid {
         grid-template-columns: 1fr;
-        gap: 3.5rem;
-        padding-top: 3.5rem;
+        gap: 1.5rem;
+        padding-top: 2rem;
     }
 
     .practice-line {
@@ -508,6 +585,8 @@ footer {
 @media (prefers-reduced-motion: reduce) {
     body::before {
         animation: none;
+        transform: none;
+        will-change: auto;
     }
 
     .chakra-orbit,

@@ -4,6 +4,8 @@
 
 The eight colors are Cindy's and are used exactly. `src/design/palette.ts` holds them. `src/styles/theme.css` declares them as Untitled UI tokens, and `tests/unit/contrast.test.ts` keeps the two files in agreement.
 
+Three muted teal, violet, and rose accents appear only in the decorative spectrum and portrait mandala. They add Cindy's requested prismatic, celestial feeling while the eight core colors still carry text, surfaces, and section identity.
+
 | Color | On cream | Allowed use |
 |---|---|---|
 | Espresso `#4A3428` | 10.31 | All text |
@@ -44,13 +46,15 @@ Familjen Grotesk now carries the page and section headings, the site name, and n
 
 The homepage and About page use Cindy's supplied portrait, converted to WebP at two widths. The home practice panels use two generated still lifes, and the five project cards use distinct editorial interpretations of their subjects. The data and yoga pages retain their own editorial images. The Contact page uses a generated botanical branch. Every image sits in `public/`, and `docs/visual-assets.md` records its source and prompt.
 
-A transparent field of fine paths and points moves slowly behind the content. The motion suggests data connections and the pace of a breath. It stops under reduced motion, and the layer never receives pointer events.
+A transparent field of orbital paths, small points, and spectral light moves slowly behind the content. BasicScroll, selected from the frontend-stuff collection, also shifts it up to 24 pixels as a reader moves down a page. The motion suggests data connections, celestial energy, and the pace of a breath. It stops under reduced motion, including when that setting changes while the page is open, and the layer never receives pointer events.
 
 On narrow screens, portrait and scene artwork follow the copy in normal grid order. The portrait stays inside a square art frame, so browser zoom cannot place it over text. The four section links move to a fixed bottom bar with 44px targets that can be reached from either side of a phone. The footer has clearance below the bar.
 
 ## Depth
 
-The two home sections use generous space, clear type, distinct practice marks, and matching photographic crops. Projects on `/data/` use individual images inside soft panels, while the featured thesis uses a full-width image. Four code native marks help readers scan the skill groups.
+The home data section uses a burgundy surface and a photo of Cindy's kind of workflow to give analytical work more presence. The yoga section uses a quieter sand surface with olive details. Both sections keep clear type, distinct practice marks, and matching photographic crops. Projects on `/data/` use individual images inside soft panels, while the featured thesis uses a full-width image. Four code native marks help readers scan the skill groups.
+
+The home introduction carries seven separate spectrum strokes, and the portrait mandala uses muted spectral petals. Both details express the rainbow energy without reducing the clarity of Cindy's credentials or work.
 
 All content stays visible as a page loads. Project panels may lift on hover, and sequence strips may draw when they enter view.
 

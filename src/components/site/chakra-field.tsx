@@ -8,6 +8,8 @@ const tones: Record<Tone, { outer: string; inner: string }> = {
     both: { outer: palette.olive, inner: palette.burgundy },
 };
 
+const spectrum = [palette.terracotta, palette.mustard, palette.olive, "#4C8A88", "#7C78A6", "#A7608A"];
+
 /** A quiet, chakra-inspired mandala. CSS handles motion and reduced-motion preference. */
 export function ChakraField({ tone = "both" }: { tone?: Tone }) {
     const color = tones[tone];
@@ -18,8 +20,16 @@ export function ChakraField({ tone = "both" }: { tone?: Tone }) {
             <g className="chakra-orbit">
                 {Array.from({ length: 12 }, (_, index) => (
                     <g key={index} transform={`rotate(${index * 30} 250 250)`}>
-                        <ellipse cx="250" cy="84" rx="29" ry="78" stroke={color.outer} strokeOpacity=".55" strokeWidth="1.4" />
-                        <circle cx="250" cy="20" r="2.6" fill={index % 3 === 0 ? palette.coral : color.outer} fillOpacity=".72" />
+                        <ellipse
+                            cx="250"
+                            cy="84"
+                            rx="29"
+                            ry="78"
+                            stroke={tone === "both" ? spectrum[index % spectrum.length] : color.outer}
+                            strokeOpacity=".55"
+                            strokeWidth="1.4"
+                        />
+                        <circle cx="250" cy="20" r="2.6" fill={tone === "both" ? spectrum[index % spectrum.length] : color.outer} fillOpacity=".72" />
                     </g>
                 ))}
             </g>

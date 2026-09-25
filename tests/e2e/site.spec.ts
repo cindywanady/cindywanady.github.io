@@ -94,6 +94,23 @@ test("the chakra stays centered after zooming in, out, and back", async ({ page 
     expect(Math.abs(restored.center - initial.center)).toBeLessThan(1);
 });
 
+test("the ambient background follows scrolling and respects a motion preference change", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/data/");
+    const backgroundTransform = () => page.evaluate(() => getComputedStyle(document.body, "::before").transform);
+
+    await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight / 2));
+    await expect.poll(backgroundTransform).not.toBe("none");
+    await expect.poll(backgroundTransform).not.toMatch(/, 0\)$/);
+
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await expect.poll(backgroundTransform).toBe("none");
+
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+    await expect.poll(backgroundTransform).not.toBe("none");
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
+});
+
 test("keyboard: the first Tab reaches the skip link, with a visible focus ring", async ({ page }) => {
     await page.goto("/");
     await page.keyboard.press("Tab");

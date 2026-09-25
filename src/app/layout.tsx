@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { AmbientScroll } from "@/components/site/ambient-scroll";
 import { PersonJsonLd } from "@/components/site/person-json-ld";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteHeader } from "@/components/site/site-header";
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     return (
         <html lang="en">
             <body className="flex min-h-dvh flex-col bg-primary font-body text-primary antialiased">
+                <AmbientScroll />
                 <SkipLink />
                 <SiteHeader />
                 <main id="main" className="mx-auto w-full max-w-6xl px-5 md:px-8">
