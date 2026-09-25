@@ -15,7 +15,7 @@ export function ChakraField({ tone = "both" }: { tone?: Tone }) {
         <svg aria-hidden="true" className="chakra-field" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="250" cy="250" r="236" stroke={color.outer} strokeOpacity=".28" strokeWidth="1" />
             <circle cx="250" cy="250" r="213" stroke={color.outer} strokeOpacity=".46" strokeWidth="1" />
-            <g className="chakra-orbit" style={{ transformOrigin: "250px 250px" }}>
+            <g className="chakra-orbit">
                 {Array.from({ length: 12 }, (_, index) => (
                     <g key={index} transform={`rotate(${index * 30} 250 250)`}>
                         <ellipse cx="250" cy="84" rx="29" ry="78" stroke={color.outer} strokeOpacity=".55" strokeWidth="1.4" />
@@ -23,7 +23,7 @@ export function ChakraField({ tone = "both" }: { tone?: Tone }) {
                     </g>
                 ))}
             </g>
-            <g className="chakra-breath" style={{ transformOrigin: "250px 250px" }}>
+            <g className="chakra-breath">
                 <circle cx="250" cy="250" r="112" fill={palette.cream} fillOpacity=".76" stroke={color.inner} strokeOpacity=".36" strokeWidth="1.5" />
                 {Array.from({ length: 8 }, (_, index) => (
                     <ellipse

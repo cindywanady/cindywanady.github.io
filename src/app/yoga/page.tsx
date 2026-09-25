@@ -36,9 +36,6 @@ export default function YogaPage() {
                         </li>
                     ))}
                 </ul>
-                <p className="font-display text-sm text-secondary">
-                    {page.text.styles}: {yoga.styles.join(" and ")}
-                </p>
             </Section>
 
             <Section title={page.text.sequence} lede={page.ledes.sequence}>

@@ -25,10 +25,10 @@ export const pages = {
             skills: "Skills",
         },
         ledes: {
-            current: "CRM data, analytics and automation at Mekari, since February 2022.",
+            current: "At Mekari, I work on CRM data, automation, and reporting.",
             thesis: "Supervised by A/Prof. Derry Wijaya at Monash University Indonesia.",
             earlier: "Tax at PwC Indonesia and finance at JET Express, then earlier roles.",
-            skills: "The tools I work with, grouped as they are in my CV.",
+            skills: "Python and SQL, modeling, reporting, and CRM automation.",
         },
     },
     thesis: {
@@ -44,7 +44,6 @@ export const pages = {
         title: "Yoga practice",
         description: "Hatha and Vinyasa yoga, a completed 100-hour teacher training at Vidyarasa, and a 200-hour training in progress.",
         text: {
-            styles: "Styles",
             training: "Training",
             completed: "Completed",
             inProgress: "In progress",
@@ -52,7 +51,7 @@ export const pages = {
             instagram: "Follow my practice on Instagram",
         },
         ledes: {
-            training: "Teacher training at Vidyarasa, with a longer course in progress.",
+            training: "I trained at Vidyarasa and have another teacher training course in progress.",
             sequence: "These are the first seven poses. A full round returns to standing after Downward-facing dog.",
         },
     },

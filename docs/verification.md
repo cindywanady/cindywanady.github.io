@@ -24,7 +24,10 @@ Playwright over `out/`, served the way GitHub Pages serves it by `scripts/serve-
 
 - Every route loads with one h1 and the right section marked.
 - Axe finds no serious or critical violations.
-- Nothing scrolls sideways at 320 or 375px.
+- Nothing scrolls sideways from 192 through 760px, including widths equivalent to high browser zoom.
+- The About portrait stays below its introduction on narrow screens.
+- The mobile navigation has four 44px targets and leaves the footer visible at the end of the page.
+- The chakra stays centered through a zoom-in, zoom-out, and reset cycle.
 - The first Tab reaches the skip link, with a visible focus ring.
 - A reader with a dark OS still gets the light theme.
 - Reduced motion shows every strip step at once.

@@ -9,11 +9,11 @@ import { NavList } from "./nav-list";
 export function SiteHeader() {
     const current = currentNavHref(usePathname() ?? "/", site.navigation);
     return (
-        <header className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-5 px-5 py-6 md:px-8">
-            <a href="/" className="font-body text-2xl font-semibold tracking-tight text-primary hover:text-brand-700">
+        <header className="site-header mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-5 px-5 py-6 md:px-8">
+            <a href="/" className="font-display text-2xl font-semibold tracking-tight text-primary hover:text-brand-700">
                 {site.identity.name}
             </a>
-            <nav aria-label="Sections">
+            <nav aria-label="Sections" className="site-nav">
                 <NavList items={site.navigation} current={current} />
             </nav>
         </header>

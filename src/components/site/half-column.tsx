@@ -20,7 +20,7 @@ export function HalfColumn({ column, tone }: { column: Column; tone: "data" | "y
         <section aria-labelledby={headingId} className={cx("practice-panel", tone === "data" ? "practice-panel-data" : "practice-panel-yoga")}>
             <h2 id={headingId} className="practice-heading">
                 <PracticeMark tone={tone} />
-                {column.heading}
+                <span>{column.heading}</span>
             </h2>
             <img
                 src={tone === "data" ? "/home-data.webp" : "/home-yoga.webp"}

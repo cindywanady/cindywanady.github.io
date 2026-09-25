@@ -6,7 +6,7 @@ The supporting assets use Cindy's burgundy, terracotta, coral, mustard, olive, s
 
 | Asset | Prompt and use |
 | --- | --- |
-| `public/botanical-branch.webp` | A transparent, asymmetric pressed botanical branch with olive leaves and restrained coral blossoms. The About portrait uses it as decoration. |
+| `public/botanical-branch.webp` | A transparent, asymmetric pressed botanical branch with olive leaves and restrained coral blossoms. The Contact page uses it as decoration. |
 | `public/data-workspace.webp` | Premium editorial still life of a research notebook with hand-drawn plots, a burgundy book, brass ruler, and olive branch. The data page uses it as an illustration. |
 | `public/yoga-practice.webp` | Premium editorial still life of a linen yoga mat, folded cloth, olive branch, and coral blossom in warm natural light. The yoga page uses it as an illustration. |
 | `public/thesis-research.webp` | Mixed media illustration of a source book connecting to three response paths. The data page and thesis page use it to introduce the research. |
@@ -17,7 +17,10 @@ The supporting assets use Cindy's burgundy, terracotta, coral, mustard, olive, s
 | `public/project-mental-health.webp` | Two facing ceramic forms, blank paper, and an olive leaf. The mental health research project uses it as a respectful visual metaphor. |
 | `public/project-climate.webp` | A glass rain gauge, unlabelled contour sheet, water droplets, and brass instrument. The climate dashboard project uses it as a visual metaphor. |
 | `public/project-job-market.webp` | Blank career cards in a neat arc with brass clips and a burgundy folder. The job-market project uses it as a visual metaphor. |
+| `public/ambient-traces.webp` | A transparent field of fine curved paths and scattered points in sand, olive, terracotta, and burgundy. It sits behind the site content and drifts slowly. |
 
 The seven new images were made with the built-in image generation tool and exported at 1200 × 800 pixels as WebP. Their prompts specify the listed subjects, realistic editorial materials, warm side lighting, the site's cream, burgundy, olive, and espresso palette, and no readable text, logos, charts, or invented project results. The project images are decorative interpretations of the subjects rather than screenshots or documentary evidence.
+
+The ambient layer was generated with the built-in image generation tool as a 1536 × 1024 transparent PNG, then encoded as a 42 KB WebP. Its final prompt asked for sparse data points and breath-like paths around the edges, a transparent center, fine low-contrast strokes, and no text, shadows, objects, or filled backdrop. CSS moves the layer slowly and stops it when the reader prefers reduced motion.
 
 The site uses code native SVG for the chakra, practice icons, and favicon. These shapes stay sharp at every size and follow the reduced motion preference.

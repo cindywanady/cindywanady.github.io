@@ -28,6 +28,8 @@ The site is light only. There is no dark theme. The components' `dark:` classes 
 
 Both families load from `public/fonts/`, so the static build needs no font download.
 
+Familjen Grotesk now carries the page and section headings, the site name, and navigation. Source Serif 4 stays in the reading text. This gives Cindy's data work and yoga practice a shared typographic identity without treating either practice as an aside.
+
 ## The sequence strip
 
 `src/components/site/sequence-strip.tsx` draws numbered steps joined by a rule. The data page shows her CRM migration method, and the yoga page shows a practice sequence. Numbering follows the actual order of each process.
@@ -40,7 +42,11 @@ Both families load from `public/fonts/`, so the static build needs no font downl
 
 `src/components/site/chakra-field.tsx` draws a thin mandala behind Cindy's portrait. Its outer petals turn slowly, and its inner petals expand slightly. Reduced motion freezes both layers. The SVG is decorative and hidden from assistive technology.
 
-The homepage and About page use Cindy's supplied portrait, converted to WebP at two widths. The home practice panels use two generated still lifes, and the five project cards use distinct editorial interpretations of their subjects. The data and yoga pages retain their own editorial images. The About page also uses a generated botanical branch. Every image sits in `public/`, and `docs/visual-assets.md` records its source and prompt.
+The homepage and About page use Cindy's supplied portrait, converted to WebP at two widths. The home practice panels use two generated still lifes, and the five project cards use distinct editorial interpretations of their subjects. The data and yoga pages retain their own editorial images. The Contact page uses a generated botanical branch. Every image sits in `public/`, and `docs/visual-assets.md` records its source and prompt.
+
+A transparent field of fine paths and points moves slowly behind the content. The motion suggests data connections and the pace of a breath. It stops under reduced motion, and the layer never receives pointer events.
+
+On narrow screens, portrait and scene artwork follow the copy in normal grid order. The portrait stays inside a square art frame, so browser zoom cannot place it over text. The four section links move to a fixed bottom bar with 44px targets that can be reached from either side of a phone. The footer has clearance below the bar.
 
 ## Depth
 

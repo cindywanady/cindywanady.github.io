@@ -31,7 +31,7 @@ for (const [path, currentNav] of ROUTES) {
             expect(blocking.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(" ")).join(", ")}`)).toEqual([]);
         });
 
-        for (const width of [320, 375]) {
+        for (const width of [192, 256, 320, 375, 390, 760]) {
             test(`never scrolls sideways at ${width}px`, async ({ page }) => {
                 await page.setViewportSize({ width, height: 800 });
                 await page.goto(path);
@@ -41,6 +41,58 @@ for (const [path, currentNav] of ROUTES) {
         }
     });
 }
+
+test("the mobile portrait stays below the About introduction at narrow and zoom-equivalent widths", async ({ page }) => {
+    for (const width of [192, 320, 390, 760]) {
+        await page.setViewportSize({ width, height: 800 });
+        await page.goto("/about/");
+        const { copy, portrait } = await page.evaluate(() => {
+            const copy = document.querySelector(".intro-copy")!.getBoundingClientRect();
+            const portrait = document.querySelector(".intro-portrait")!.getBoundingClientRect();
+            return { copy: { bottom: copy.bottom }, portrait: { top: portrait.top } };
+        });
+        expect(portrait.top).toBeGreaterThanOrEqual(copy.bottom);
+    }
+});
+
+test("mobile navigation is reachable from either side and clears the footer", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/about/");
+    const links = page.getByRole("navigation", { name: "Sections" }).getByRole("link");
+    await expect(links).toHaveCount(4);
+    const boxes = await links.evaluateAll((nodes) => nodes.map((node) => node.getBoundingClientRect().toJSON()));
+    expect(boxes[0].x).toBeLessThan(80);
+    expect(boxes[3].right).toBeGreaterThan(310);
+    expect(boxes.every((box) => box.height >= 44)).toBe(true);
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    const { footer, nav } = await page.evaluate(() => ({
+        footer: document.querySelector("footer")!.getBoundingClientRect().bottom,
+        nav: document.querySelector(".site-nav")!.getBoundingClientRect().top,
+    }));
+    expect(footer).toBeLessThanOrEqual(nav);
+});
+
+test("the chakra stays centered after zooming in, out, and back", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.goto("/about/");
+    const geometry = () =>
+        page.evaluate(() => {
+            const svg = document.querySelector(".chakra-field")!.getBoundingClientRect();
+            const orbit = document.querySelector(".chakra-orbit")!.getBoundingClientRect();
+            const portrait = document.querySelector(".intro-portrait")!.getBoundingClientRect();
+            return { center: svg.x + svg.width / 2, orbitCenter: orbit.x + orbit.width / 2, portraitCenter: portrait.x + portrait.width / 2 };
+        });
+    const initial = await geometry();
+    for (const zoom of ["150%", "200%", "75%", "100%"]) {
+        await page.evaluate((value) => (document.documentElement.style.zoom = value), zoom);
+        const current = await geometry();
+        expect(Math.abs(current.orbitCenter - current.center)).toBeLessThan(1);
+        expect(Math.abs(current.portraitCenter - current.center)).toBeLessThan(1);
+    }
+    const restored = await geometry();
+    expect(Math.abs(restored.center - initial.center)).toBeLessThan(1);
+});
 
 test("keyboard: the first Tab reaches the skip link, with a visible focus ring", async ({ page }) => {
     await page.goto("/");

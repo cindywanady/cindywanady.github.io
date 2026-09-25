@@ -1,5 +1,5 @@
-/* Editorial type, fine rules, and a single botanical illustration give the
-   site its quiet pace. The eight client colors remain in theme.css. */
+/* The ambient layer, fine rules, and strong display type shape the site.
+   The eight client colors remain in theme.css. */
 
 @font-face {
     font-family: "Familjen Grotesk";
@@ -24,6 +24,25 @@
 
 body {
     background-color: var(--color-neutral-50);
+    isolation: isolate;
+}
+
+body::before {
+    position: fixed;
+    z-index: 0;
+    inset: 0;
+    background: url("/ambient-traces.webp") 0 100% / 110% 110% no-repeat;
+    content: "";
+    opacity: 0.16;
+    pointer-events: none;
+    animation: ambient-drift 65s ease-in-out infinite alternate;
+}
+
+.site-header,
+main,
+footer {
+    position: relative;
+    z-index: 1;
 }
 
 ::selection {
@@ -53,23 +72,25 @@ body {
 .intro-copy {
     position: relative;
     z-index: 2;
+    min-width: 0;
 }
 
 .intro-title {
     max-width: 14ch;
     margin: 0;
     color: var(--color-neutral-800);
-    font-family: var(--font-body);
-    font-size: clamp(3.9rem, 6.6vw, 6.4rem);
-    font-weight: 500;
-    line-height: 0.99;
+    font-family: var(--font-display);
+    font-size: clamp(3.6rem, 6.3vw, 6rem);
+    font-weight: 600;
+    line-height: 1.02;
     letter-spacing: -0.055em;
     text-wrap: balance;
+    overflow-wrap: anywhere;
 }
 
 .intro-shell-inner .intro-title {
     max-width: 16ch;
-    font-size: clamp(3.7rem, 5.5vw, 5.5rem);
+    font-size: clamp(3.35rem, 5vw, 5.1rem);
 }
 
 .hero-emphasis {
@@ -91,6 +112,7 @@ body {
 .intro-art {
     position: relative;
     align-self: stretch;
+    min-width: 0;
     min-height: 20rem;
 }
 
@@ -102,7 +124,7 @@ body {
 .intro-portrait {
     position: absolute;
     z-index: 2;
-    right: 12%;
+    left: 50%;
     bottom: 1rem;
     display: block;
     width: 76%;
@@ -111,6 +133,7 @@ body {
     border-radius: 50%;
     background: var(--color-neutral-50);
     box-shadow: 0 28px 54px -40px rgb(74 52 40 / 0.45);
+    transform: translateX(-50%);
 }
 
 .intro-portrait img {
@@ -124,7 +147,6 @@ body {
 }
 
 .intro-shell-inner .intro-portrait {
-    right: 12%;
     bottom: 0.4rem;
 }
 
@@ -177,7 +199,8 @@ body {
     flex-direction: column;
     gap: 1.45rem;
     min-width: 0;
-    padding-top: 0.2rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--practice-color);
 }
 
 .practice-panel-data {
@@ -194,11 +217,15 @@ body {
     gap: 0.85rem;
     margin: 0;
     color: var(--color-neutral-800);
-    font-family: var(--font-body);
+    font-family: var(--font-display);
     font-size: clamp(2.25rem, 3.4vw, 3.25rem);
     font-weight: 500;
     line-height: 1.1;
     letter-spacing: -0.035em;
+}
+
+.practice-heading span {
+    min-width: 0;
 }
 
 .practice-mark {
@@ -225,6 +252,26 @@ body {
     aspect-ratio: 16 / 10;
     object-fit: cover;
     border-radius: 0.45rem;
+}
+
+.project-entry {
+    border-top: 2px solid var(--color-neutral-300);
+}
+
+.project-entry[data-featured] {
+    border-top-color: var(--color-feature);
+}
+
+.project-entry {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.project-entry [aria-label="Tools"] li,
+.project-entry [aria-label="Tools"] span {
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
 }
 
 .featured-project-image {
@@ -265,6 +312,7 @@ body {
     gap: 0.8rem;
     align-self: flex-start;
     margin-top: auto;
+    min-height: 2.75rem;
     padding: 0.55rem 0 0.3rem;
     color: var(--color-brand-700);
     border-bottom: 1px solid var(--color-brand-700);
@@ -280,11 +328,25 @@ body {
 }
 
 .chakra-orbit {
+    transform-box: view-box;
+    transform-origin: center;
     animation: chakra-turn 70s linear infinite;
 }
 
 .chakra-breath {
+    transform-box: view-box;
+    transform-origin: center;
     animation: chakra-inhale 8s ease-in-out infinite;
+}
+
+@keyframes ambient-drift {
+    from {
+        background-position: 0 100%;
+    }
+
+    to {
+        background-position: 100% 0;
+    }
 }
 
 @keyframes chakra-turn {
@@ -300,29 +362,83 @@ body {
 }
 
 @media (max-width: 760px) {
+    body {
+        padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+    }
+
+    .site-nav {
+        position: fixed;
+        z-index: 10;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 0.35rem max(0.5rem, env(safe-area-inset-right)) calc(0.35rem + env(safe-area-inset-bottom)) max(0.5rem, env(safe-area-inset-left));
+        background: var(--color-neutral-50);
+        border-top: 1px solid var(--color-neutral-200);
+        box-shadow: 0 -8px 24px -20px rgb(74 52 40 / 0.35);
+    }
+
+    .site-nav-list {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0;
+        width: 100%;
+    }
+
+    .site-nav-list li {
+        min-width: 0;
+    }
+
+    .site-nav-list a {
+        display: grid;
+        min-height: 2.75rem;
+        place-items: center;
+        padding-inline: 0.1rem;
+        text-align: center;
+        touch-action: manipulation;
+    }
+
     .intro-shell-home,
     .intro-shell-inner {
         grid-template-columns: 1fr;
         min-height: 0;
-        padding-block: 3.5rem 2rem;
+        padding-block: 2.5rem 2rem;
     }
 
     .intro-title {
-        font-size: clamp(3.45rem, 12vw, 5rem);
+        font-size: clamp(2.8rem, 9.5vw, 4.5rem);
     }
 
     .intro-shell-inner .intro-title {
-        font-size: clamp(3.25rem, 10.5vw, 4.5rem);
+        font-size: clamp(2.65rem, 8.8vw, 4.5rem);
     }
 
     .intro-art {
-        min-height: 20rem;
-        margin-top: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .intro-art-portrait {
+        width: min(100%, 22rem);
+        min-height: 0;
+        aspect-ratio: 1;
+        justify-self: center;
+    }
+
+    .intro-shell-home .intro-art-portrait {
+        width: min(100%, 24rem);
+    }
+
+    .intro-art-scene {
+        min-height: 0;
+        aspect-ratio: 16 / 10;
+    }
+
+    .intro-art-symbol {
+        min-height: 12rem;
     }
 
     .intro-shell-inner .intro-art {
-        min-height: 12rem;
-        margin-top: -1rem;
+        margin-top: 1.5rem;
     }
 
     .intro-botanical {
@@ -332,7 +448,6 @@ body {
     }
 
     .intro-portrait {
-        right: 11%;
         bottom: 0;
         width: 78%;
     }
@@ -342,10 +457,10 @@ body {
     }
 
     .intro-scene {
-        right: 50%;
-        width: min(100%, 28rem);
+        right: 0;
+        width: 100%;
         height: 100%;
-        transform: translate(50%, -50%);
+        transform: translateY(-50%);
     }
 
     .chakra-field {
@@ -363,7 +478,38 @@ body {
     }
 }
 
+@media (max-width: 240px) {
+    .site-nav-list a {
+        font-size: 0.75rem;
+    }
+
+    .practice-heading {
+        gap: 0.5rem;
+        font-size: 1.65rem;
+    }
+
+    .practice-mark {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .project-entry {
+        padding: 1rem;
+    }
+}
+
+@media (hover: none) {
+    .project-entry:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
+    body::before {
+        animation: none;
+    }
+
     .chakra-orbit,
     .chakra-breath {
         animation: none;

@@ -11,7 +11,7 @@ export function SiteFooter() {
                 {site.identity.name}, {new Date().getFullYear()}
             </p>
             <nav aria-label="Profiles">
-                <ul className="flex items-center gap-5">
+                <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
                     {site.identity.profiles.map((profile) => {
                         const Icon = ICONS[profile.label];
                         return (

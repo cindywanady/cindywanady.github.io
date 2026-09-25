@@ -4,7 +4,7 @@ import { cx } from "@/utils/cx";
 /** The four section links. `current` is the href of the section being read. */
 export function NavList({ items, current }: { items: NavItem[]; current: string | null }) {
     return (
-        <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
+        <ul className="site-nav-list flex flex-wrap items-center gap-x-6 gap-y-2">
             {items.map((item) => {
                 const isCurrent = item.href === current;
                 return (
