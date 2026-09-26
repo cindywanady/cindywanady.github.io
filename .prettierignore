@@ -7,3 +7,5 @@ playwright-report
 .superpowers
 docs
 sources
+# Preserve the Google verification file exactly as downloaded.
+public/googleda63dab580ff61ff.html
